@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Zim Study Hub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+    }
+
+    header {
+      background: #006400;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+
+    nav {
+      background: #004d00;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      margin: 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .container {
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 8px;
+    }
+
+    button {
+      padding: 10px;
+      background: green;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Zim Study Hub</h1>
+  <p>Free ZIMSEC Notes, Past Papers & Online Tests</p>
+</header>
+
+<nav>
+  <a href="#home">Home</a>
+  <a href="#papers">Past Papers</a>
+  <a href="#test">Online Test</a>
+  <a href="#about">About</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<div class="container" id="home">
+  <div class="card">
+    <h2>Welcome</h2>
+    <p>Access free study materials for O Level and A Level.</p>
+  </div>
+
+  <div class="card" id="papers">
+    <h2>Past Papers</h2>
+    <p><a href="https://drive.google.com">Download Maths Papers</a></p>
+    <p><a href="https://drive.google.com">Download English Papers</a></p>
+  </div>
+
+  <div class="card" id="test">
+    <h2>Online Test (Maths)</h2>
+    <p id="question">What is 5 + 3?</p>
+    <input type="text" id="answer" placeholder="Your answer">
+    <button onclick="checkAnswer()">Submit</button>
+    <p id="result"></p>
+  </div>
+
+  <div class="card" id="about">
+    <h2>About Us</h2>
+    <p>Zim Study Hub helps students pass ZIMSEC exams by providing free resources.</p>
+  </div>
+
+  <div class="card" id="contact">
+    <h2>Contact</h2>
+    <p>WhatsApp: <a href="https://wa.me/263786226747">0786226747</a></p>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 Zim Study Hub</p>
+</footer>
+
+<script>
+  function checkAnswer() {
+    let answer = document.getElementById("answer").value;
+    let result = document.getElementById("result");
+
+    if (answer == "8") {
+      result.innerHTML = "Correct!";
+      result.style.color = "green";
+    } else {
+      result.innerHTML = "Wrong answer. Try again.";
+      result.style.color = "red";
+    }
+  }
+</script>
+
+</body>
+</html>
