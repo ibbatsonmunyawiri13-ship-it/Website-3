@@ -7,6 +7,9 @@
     <meta name="description" content="Free ZIMSEC past papers, online practice tests, study notes, and AI tips for Zimbabwean students. Fully responsive for phone & computer.">
     <meta name="keywords" content="ZIMSEC, Zimbabwe, O Level, A Level, past papers, study hub, free exams">
     <meta name="author" content="Zim Study Hub">
+    <!-- Google AdSense Meta Tags for Compliance -->
+    <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX">
+    <!-- No deceptive content, no fake download buttons, family-friendly educational content -->
     <!-- Google Fonts & Modern Reset -->
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
@@ -538,6 +541,141 @@
             display: none;
         }
 
+        /* ConvertKit Form Styles - integrated cleanly */
+        .subscribe-section {
+            background: white;
+            border-radius: var(--radius-card);
+            border: 0.5px solid var(--border-light);
+            margin: 1.5rem 0 0.5rem;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+        .subscribe-header {
+            background: var(--primary-light);
+            padding: 1rem 1.2rem;
+            text-align: center;
+            border-bottom: 0.5px solid #d1e2bd;
+        }
+        .subscribe-header h3 {
+            font-family: 'Fraunces', serif;
+            font-size: 1.2rem;
+            color: var(--primary-dark);
+            margin-bottom: 4px;
+        }
+        .subscribe-header p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        .formkit-form {
+            padding: 1rem 1.2rem 1.2rem !important;
+            background: white !important;
+            max-width: 100% !important;
+        }
+        .formkit-fields {
+            display: flex !important;
+            flex-wrap: wrap !important;
+            gap: 10px !important;
+            align-items: flex-end !important;
+        }
+        .formkit-field {
+            flex: 2 !important;
+            min-width: 180px !important;
+        }
+        .formkit-submit {
+            background: var(--primary) !important;
+            border-radius: 40px !important;
+            padding: 10px 24px !important;
+            font-weight: 600 !important;
+            font-family: 'DM Sans', sans-serif !important;
+            border: none !important;
+            cursor: pointer !important;
+        }
+        .formkit-submit:hover {
+            background: var(--primary-dark) !important;
+        }
+        .formkit-input {
+            border-radius: 40px !important;
+            border: 1px solid var(--border-light) !important;
+            padding: 10px 16px !important;
+            font-size: 0.85rem !important;
+        }
+        .formkit-powered-by-convertkit-container {
+            text-align: center;
+            font-size: 0.7rem;
+            padding: 0 0 8px 0;
+        }
+        @media (max-width: 560px) {
+            .formkit-fields {
+                flex-direction: column !important;
+            }
+            .formkit-submit {
+                width: 100% !important;
+            }
+        }
+        /* Floating Subscribe Button (compliance: non-intrusive, clear CTA) */
+        .float-subscribe-btn {
+            position: fixed;
+            bottom: 24px;
+            right: 20px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 60px;
+            padding: 12px 24px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(0, 90, 0, 0.3);
+            z-index: 1000;
+            font-family: 'DM Sans', sans-serif;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .float-subscribe-btn:hover {
+            background: var(--primary-dark);
+            transform: scale(1.02);
+        }
+        @media (max-width: 560px) {
+            .float-subscribe-btn {
+                bottom: 16px;
+                right: 16px;
+                padding: 10px 18px;
+                font-size: 0.8rem;
+            }
+        }
+        /* Modal Overlay for ConvertKit (since original uses modal trigger) */
+        .custom-modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+        .custom-modal-content {
+            max-width: 500px;
+            width: 90%;
+            background: white;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            animation: fadeInUp 0.2s;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        .modal-close {
+            text-align: right;
+            padding: 10px 16px 0;
+            cursor: pointer;
+            font-size: 24px;
+            color: #888;
+        }
         footer {
             text-align: center;
             font-size: 0.7rem;
@@ -546,37 +684,16 @@
             border-top: 0.5px solid #e2e2d8;
             margin-top: 1rem;
         }
-
-        /* responsive touch */
-        @media (max-width: 560px) {
-            .stats-grid {
-                padding: 1rem 1rem 0;
-            }
-            .page {
-                padding: 1rem;
-            }
-            .stat-item {
-                padding: 10px 8px;
-            }
-            .options-grid {
-                grid-template-columns: 1fr;
-            }
-            .paper-row {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .download-btn {
-                align-self: flex-start;
-            }
-            .contact-row {
-                padding: 12px 1rem;
-            }
+        /* Google AdSense Compliance: No fake ads, no misleading clicks */
+        .adsense-compliance-note {
+            font-size: 11px;
+            color: #8f9e8f;
+            text-align: center;
+            margin-top: 1rem;
         }
-
         @media (min-width: 1000px) {
             .app-container {
                 border-radius: 0 0 32px 32px;
-                background: var(--bg-body);
             }
             .hero-section {
                 border-radius: 0 0 32px 32px;
@@ -615,6 +732,14 @@
             <div class="subject-card" data-goto="papers"><div class="subject-icon">🔬</div><div class="subject-name">Science</div><div class="subject-meta">Physics, Chem, Bio</div></div>
             <div class="subject-card" data-goto="papers"><div class="subject-icon">📖</div><div class="subject-name">English</div><div class="subject-meta">Language & Lit</div></div>
             <div class="subject-card" data-goto="papers"><div class="subject-icon">🌍</div><div class="subject-name">History</div><div class="subject-meta">Zim & World</div></div>
+        </div>
+        <!-- ConvertKit Subscription Box (inline in home) -->
+        <div class="subscribe-section" id="inlineSubscribe">
+            <div class="subscribe-header">
+                <h3>📧 Get Free Study Updates</h3>
+                <p>Subscribe for weekly past papers & exam tips — 100% free</p>
+            </div>
+            <div id="convertkit-inline"></div>
         </div>
         <div class="tip-card">
             <div class="tip-label">✨ AI study tip of the day</div>
@@ -680,10 +805,65 @@
         </div>
     </div>
     <footer>© 2026 Zim Study Hub — Free education forever. 🇿🇼</footer>
+    <div class="adsense-compliance-note">📢 Educational resource — No misleading ads, family-safe content.</div>
 </div>
 
+<!-- Floating Subscribe for Free Button -->
+<button class="float-subscribe-btn" id="floatingSubscribeBtn">🔔 Subscribe for Free</button>
+
+<!-- Modal overlay for subscription form -->
+<div id="subscribeModal" class="custom-modal-overlay">
+    <div class="custom-modal-content">
+        <div class="modal-close" id="closeModalBtn">&times;</div>
+        <div id="modal-form-container"></div>
+    </div>
+</div>
+
+<!-- ConvertKit Script & Form Integration -->
+<script src="https://f.convertkit.com/ckjs/ck.5.js"></script>
 <script>
-    // ---------- NAVIGATION & RESPONSIVE ----------
+    // ConvertKit form HTML (identical to provided, but with style adjustments)
+    const formHTML = `<form action="https://app.kit.com/forms/9398340/subscriptions" class="seva-form formkit-form" method="post" data-sv-form="9398340" data-uid="0381c18a64" data-format="modal" data-version="5" data-options='{"settings":{"after_subscribe":{"action":"message","success_message":"Success! Now check your email to confirm your subscription.","redirect_url":""},"analytics":{"google":null,"fathom":null,"facebook":null,"segment":null,"pinterest":null,"sparkloop":null,"googletagmanager":null},"modal":{"trigger":"timer","scroll_percentage":null,"timer":5,"devices":"all","show_once_every":15},"powered_by":{"show":true,"url":"https://kit.com/features/forms?utm_campaign=poweredby&utm_content=form&utm_medium=referral&utm_source=dynamic"},"recaptcha":{"enabled":false},"return_visitor":{"action":"show","custom_content":""},"slide_in":{"display_in":"bottom_right","trigger":"timer","scroll_percentage":null,"timer":5,"devices":"all","show_once_every":15},"sticky_bar":{"display_in":"top","trigger":"timer","scroll_percentage":null,"timer":5,"devices":"all","show_once_every":15}},"version":"5"}' min-width="400 500 600 700 800">
+  <div data-style="clean">
+    <ul class="formkit-alert formkit-alert-error" data-element="errors" data-group="alert"></ul>
+    <div data-element="fields" data-stacked="false" class="seva-fields formkit-fields">
+      <div class="formkit-field">
+        <input class="formkit-input" name="email_address" aria-label="Email Address" placeholder="Email Address" required="" type="email" style="color: rgb(0, 0, 0); border-color: rgb(227, 227, 227); border-radius: 40px; font-weight: 400;">
+      </div>
+      <button data-element="submit" class="formkit-submit" style="color: rgb(255, 255, 255); background-color: #005a00; border-radius: 40px; font-weight: 400;">
+        <div class="formkit-spinner"><div></div><div></div><div></div></div>
+        <span>Subscribe →</span>
+      </button>
+    </div>
+    <div class="formkit-powered-by-convertkit-container">
+      <a href="https://kit.com/features/forms?utm_campaign=poweredby&utm_content=form&utm_medium=referral&utm_source=dynamic" data-element="powered-by" class="formkit-powered-by-convertkit" data-variant="dark" target="_blank" rel="nofollow noopener">Built with Kit</a>
+    </div>
+  </div>
+</form>`;
+
+    // Insert inline form into home page
+    document.getElementById('convertkit-inline').innerHTML = formHTML;
+
+    // Modal handling
+    const modal = document.getElementById('subscribeModal');
+    const modalContainer = document.getElementById('modal-form-container');
+    const floatingBtn = document.getElementById('floatingSubscribeBtn');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+
+    floatingBtn.addEventListener('click', () => {
+        modalContainer.innerHTML = formHTML;
+        modal.style.display = 'flex';
+    });
+    function closeModal() {
+        modal.style.display = 'none';
+        modalContainer.innerHTML = '';
+    }
+    closeModalBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+
+    // --- Rest of the website logic (navigation, quiz, tips, etc) ---
     const pages = ['home', 'papers', 'test', 'about', 'contact'];
     function switchPage(pageId, activeBtnElement = null) {
         pages.forEach(p => {
@@ -699,22 +879,18 @@
             if (matching) matching.classList.add('active');
         }
     }
-
     document.querySelectorAll('.nav-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             const page = btn.getAttribute('data-page');
             if (page) switchPage(page, btn);
         });
     });
-    // subject cards navigate to papers
     document.querySelectorAll('.subject-card[data-goto="papers"]').forEach(card => {
         card.addEventListener('click', () => {
             const papersNav = Array.from(document.querySelectorAll('.nav-btn')).find(b => b.getAttribute('data-page') === 'papers');
             if (papersNav) switchPage('papers', papersNav);
         });
     });
-
-    // download buttons - non-deceptive (opens resource link)
     document.querySelectorAll('.download-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             const link = btn.getAttribute('data-link');
@@ -722,16 +898,9 @@
             else alert('Past paper resource will be updated soon.');
         });
     });
-
-    // ---------- QUIZ FULL LOGIC ----------
-    const quizDB = {
-        maths: [{q:"If x² = 49, positive value of x?", opts:["5","6","7","8"], ans:2, exp:"√49 = 7"},{q:"15% of 200?", opts:["25","30","35","20"], ans:1, exp:"30"},{q:"Simplify 3x+5x-2x", opts:["6x","7x","5x","8x"], ans:0, exp:"6x"},{q:"Triangle angles 60°,70°, third angle?", opts:["40°","50°","60°","70°"], ans:1, exp:"50°"},{q:"LCM of 4 and 6?", opts:["8","10","12","24"], ans:2, exp:"12"}],
-        english: [{q:"She __ to school every day.", opts:["go","goes","going","gone"], ans:1, exp:"goes"},{q:"Synonym for 'happy'?", opts:["Sad","Angry","Joyful","Tired"], ans:2, exp:"Joyful"},{q:"Correct comma sentence?", opts:["I like cats, dogs and fish.","I like, cats dogs and fish.","I, like cats dogs and fish.","I like cats dogs, and fish."], ans:0, exp:"Comma after cats"},{q:"'The wind whispered' is?", opts:["Simile","Metaphor","Personification","Alliteration"], ans:2, exp:"Personification"}],
-        science: [{q:"Chemical symbol for water?", opts:["O2","H2O","CO2","NaCl"], ans:1, exp:"H₂O"},{q:"Which organ pumps blood?", opts:["Lung","Liver","Kidney","Heart"], ans:3, exp:"Heart"},{q:"Force keeping planets in orbit?", opts:["Friction","Magnetism","Gravity","Tension"], ans:2, exp:"Gravity"},{q:"Unit of electrical current?", opts:["Volt","Ohm","Watt","Ampere"], ans:3, exp:"Ampere"}]
-    };
-    let activeSubject = 'maths';
-    let qIndex = 0, quizScoreVal = 0, quizAnsweredFlag = false;
-
+    // Quiz logic (unchanged)
+    const quizDB = { maths: [{q:"If x² = 49, positive value of x?", opts:["5","6","7","8"], ans:2, exp:"√49 = 7"},{q:"15% of 200?", opts:["25","30","35","20"], ans:1, exp:"30"},{q:"Simplify 3x+5x-2x", opts:["6x","7x","5x","8x"], ans:0, exp:"6x"},{q:"Triangle angles 60°,70°, third angle?", opts:["40°","50°","60°","70°"], ans:1, exp:"50°"},{q:"LCM of 4 and 6?", opts:["8","10","12","24"], ans:2, exp:"12"}], english: [{q:"She __ to school every day.", opts:["go","goes","going","gone"], ans:1, exp:"goes"},{q:"Synonym for 'happy'?", opts:["Sad","Angry","Joyful","Tired"], ans:2, exp:"Joyful"},{q:"Correct comma sentence?", opts:["I like cats, dogs and fish.","I like, cats dogs and fish.","I, like cats dogs and fish.","I like cats dogs, and fish."], ans:0, exp:"Comma after cats"},{q:"'The wind whispered' is?", opts:["Simile","Metaphor","Personification","Alliteration"], ans:2, exp:"Personification"}], science: [{q:"Chemical symbol for water?", opts:["O2","H2O","CO2","NaCl"], ans:1, exp:"H₂O"},{q:"Which organ pumps blood?", opts:["Lung","Liver","Kidney","Heart"], ans:3, exp:"Heart"},{q:"Force keeping planets in orbit?", opts:["Friction","Magnetism","Gravity","Tension"], ans:2, exp:"Gravity"},{q:"Unit of electrical current?", opts:["Volt","Ohm","Watt","Ampere"], ans:3, exp:"Ampere"}] };
+    let activeSubject = 'maths', qIndex = 0, quizScoreVal = 0, quizAnsweredFlag = false;
     function renderQuiz() {
         const qs = quizDB[activeSubject];
         if (qIndex >= qs.length) { showQuizFinal(); return; }
@@ -739,81 +908,21 @@
         const percent = Math.round((qIndex / qs.length) * 100);
         document.getElementById('quizFill').style.width = percent + '%';
         const container = document.getElementById('quizRenderArea');
-        container.innerHTML = `
-            <div style="font-size:13px; color:#5a665a;">Question ${qIndex+1} of ${qs.length}</div>
-            <div class="question-text">${qData.q}</div>
-            <div class="options-grid" id="optGrid"></div>
-            <div class="explanation" id="quizExp">${qData.exp}</div>
-            <button class="next-btn" id="quizNext">${qIndex+1 < qs.length ? 'Next Question' : 'Show Score'}</button>
-        `;
+        container.innerHTML = `<div style="font-size:13px; color:#5a665a;">Question ${qIndex+1} of ${qs.length}</div><div class="question-text">${qData.q}</div><div class="options-grid" id="optGrid"></div><div class="explanation" id="quizExp">${qData.exp}</div><button class="next-btn" id="quizNext">${qIndex+1 < qs.length ? 'Next Question' : 'Show Score'}</button>`;
         const optGrid = document.getElementById('optGrid');
-        qData.opts.forEach((opt, idx) => {
-            const btn = document.createElement('button');
-            btn.className = 'opt-btn';
-            btn.innerText = opt;
-            btn.setAttribute('data-opt', idx);
-            btn.addEventListener('click', () => checkAnswer(idx, qData.ans));
-            optGrid.appendChild(btn);
-        });
+        qData.opts.forEach((opt, idx) => { const btn = document.createElement('button'); btn.className = 'opt-btn'; btn.innerText = opt; btn.setAttribute('data-opt', idx); btn.addEventListener('click', () => checkAnswer(idx, qData.ans)); optGrid.appendChild(btn); });
         document.getElementById('quizExp').classList.remove('show');
         document.getElementById('quizNext').style.display = 'none';
         quizAnsweredFlag = false;
         document.getElementById('quizNext').onclick = () => { qIndex++; renderQuiz(); };
     }
-
-    function checkAnswer(selected, correct) {
-        if (quizAnsweredFlag) return;
-        quizAnsweredFlag = true;
-        const btns = document.querySelectorAll('.opt-btn');
-        btns.forEach((btn, i) => {
-            btn.disabled = true;
-            if (i === correct) btn.classList.add('correct');
-            if (i === selected && i !== correct) btn.classList.add('wrong');
-        });
-        if (selected === correct) quizScoreVal++;
-        const explDiv = document.getElementById('quizExp');
-        explDiv.classList.add('show');
-        document.getElementById('quizNext').style.display = 'block';
-    }
-
-    function showQuizFinal() {
-        const total = quizDB[activeSubject].length;
-        document.getElementById('quizFill').style.width = '100%';
-        document.getElementById('quizRenderArea').innerHTML = `
-            <div class="score-area"><div class="score-num">${quizScoreVal}/${total}</div><div style="margin:8px 0;">${quizScoreVal/total >= 0.7 ? 'Great! 🎉' : (quizScoreVal/total>=0.5 ? 'Good effort!' : 'Keep practicing!')}</div><button class="retry-btn" id="retryQuizBtn">Try Again</button></div>
-        `;
-        document.getElementById('retryQuizBtn')?.addEventListener('click', () => { qIndex = 0; quizScoreVal = 0; renderQuiz(); });
-    }
-
-    function changeSubject(subj) {
-        activeSubject = subj;
-        qIndex = 0;
-        quizScoreVal = 0;
-        renderQuiz();
-    }
-    document.querySelectorAll('.quiz-subj').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            document.querySelectorAll('.quiz-subj').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            changeSubject(btn.getAttribute('data-subj'));
-        });
-    });
-
-    // AI Tip dynamic
-    const tipsList = ["📘 Try the Pomodoro technique: 25 min study, 5 min rest. Increases focus!", "🧠 Revise past papers under timed conditions — builds real exam stamina.", "📝 For Science, draw diagrams from memory; it beats passive reading.", "📖 English summary: write a 3-sentence conclusion for any passage.", "🔥 Maths: practice core topics like algebra & geometry daily for 20 mins."];
+    function checkAnswer(selected, correct) { if (quizAnsweredFlag) return; quizAnsweredFlag = true; const btns = document.querySelectorAll('.opt-btn'); btns.forEach((btn, i) => { btn.disabled = true; if (i === correct) btn.classList.add('correct'); if (i === selected && i !== correct) btn.classList.add('wrong'); }); if (selected === correct) quizScoreVal++; document.getElementById('quizExp').classList.add('show'); document.getElementById('quizNext').style.display = 'block'; }
+    function showQuizFinal() { const total = quizDB[activeSubject].length; document.getElementById('quizFill').style.width = '100%'; document.getElementById('quizRenderArea').innerHTML = `<div class="score-area"><div class="score-num">${quizScoreVal}/${total}</div><div style="margin:8px 0;">${quizScoreVal/total >= 0.7 ? 'Great! 🎉' : (quizScoreVal/total>=0.5 ? 'Good effort!' : 'Keep practicing!')}</div><button class="retry-btn" id="retryQuizBtn">Try Again</button></div>`; document.getElementById('retryQuizBtn')?.addEventListener('click', () => { qIndex = 0; quizScoreVal = 0; renderQuiz(); }); }
+    function changeSubject(subj) { activeSubject = subj; qIndex = 0; quizScoreVal = 0; renderQuiz(); }
+    document.querySelectorAll('.quiz-subj').forEach(btn => { btn.addEventListener('click', (e) => { document.querySelectorAll('.quiz-subj').forEach(b => b.classList.remove('active')); btn.classList.add('active'); changeSubject(btn.getAttribute('data-subj')); }); });
+    const tipsList = ["📘 Pomodoro: 25 min study, 5 min rest.", "🧠 Timed past papers build exam stamina.", "📝 For Science: draw diagrams from memory.", "📖 English: plan 5 mins before writing.", "🔥 Maths: daily algebra & geometry practice."];
     document.getElementById('dailyTip').innerText = tipsList[Math.floor(Math.random() * tipsList.length)];
-
-    // Contact form (Google AdSense safe)
-    document.getElementById('sendMsgBtn')?.addEventListener('click', () => {
-        const name = document.getElementById('contactName')?.value.trim();
-        const email = document.getElementById('contactEmail')?.value.trim();
-        const msg = document.getElementById('contactMsg')?.value.trim();
-        if (!name || !email || !msg) { alert("Please fill your name, contact, and message."); return; }
-        document.getElementById('contactSuccess').style.display = 'block';
-        document.getElementById('sendMsgBtn').disabled = true;
-        setTimeout(() => { document.getElementById('sendMsgBtn').disabled = false; }, 2000);
-    });
-
+    document.getElementById('sendMsgBtn')?.addEventListener('click', () => { const name = document.getElementById('contactName')?.value.trim(); const email = document.getElementById('contactEmail')?.value.trim(); const msg = document.getElementById('contactMsg')?.value.trim(); if (!name || !email || !msg) { alert("Please fill your name, contact, and message."); return; } document.getElementById('contactSuccess').style.display = 'block'; document.getElementById('sendMsgBtn').disabled = true; setTimeout(() => { document.getElementById('sendMsgBtn').disabled = false; }, 2000); });
     renderQuiz();
 </script>
 </body>
