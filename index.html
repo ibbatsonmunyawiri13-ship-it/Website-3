@@ -1,716 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
-    <title>Zim Study Hub | Free ZIMSEC Prep</title>
-    <meta name="description" content="Free ZIMSEC past papers, online practice tests, study notes, and AI tips for Zimbabwean students. Fully responsive for phone & computer.">
-    <meta name="keywords" content="ZIMSEC, Zimbabwe, O Level, A Level, past papers, study hub, free exams">
-    <meta name="author" content="Zim Study Hub">
-    <!-- Google AdSense Meta Tags for Compliance -->
-    <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6023002869838697"
-     crossorigin="anonymous"></script>
-    <!-- No deceptive content, no fake download buttons, family-friendly educational content -->
-    <!-- Google Fonts & Modern Reset -->
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes" />
+    <title>Zim Study Hub | Exam Papers & Prep</title>
+    <meta name="description" content="Free ZIMSEC, Cambridge & NCC past papers, online practice, notes & AI tips for Zimbabwean students." />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         :root {
-            --primary: #005a00;
-            --primary-dark: #004700;
-            --primary-light: #eef5e8;
-            --accent: #7ed957;
-            --text-dark: #1a1f1a;
-            --text-muted: #4a554a;
-            --bg-body: #fafaf7;
-            --bg-card: #ffffff;
-            --border-light: #e6e6df;
-            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.02), 0 1px 2px rgba(0, 0, 0, 0.03);
-            --radius-card: 20px;
-            --radius-sm: 14px;
+            --primary: #005a00; --primary-dark: #004700; --primary-light: #eef5e8;
+            --accent: #7ed957; --text-dark: #1a1f1a; --text-muted: #4a554a;
+            --bg-body: #fafaf7; --bg-card: #ffffff; --border-light: #e6e6df;
+            --shadow-sm: 0 4px 12px rgba(0,0,0,0.02), 0 1px 2px rgba(0,0,0,0.03);
+            --radius-card: 20px; --radius-sm: 14px;
         }
-
-        body {
-            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, sans-serif;
-            background: var(--bg-body);
-            color: var(--text-dark);
-            line-height: 1.45;
-        }
-
-        /* main container - fluid but max width for big screens */
-        .app-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: var(--bg-body);
-            box-shadow: 0 0 40px rgba(0, 0, 0, 0.02);
-        }
-
-        /* ----- HERO (fully responsive) ----- */
+        body { font-family: 'DM Sans', sans-serif; background: var(--bg-body); color: var(--text-dark); line-height: 1.45; }
+        .app-container { max-width: 1200px; margin: 0 auto; background: var(--bg-body); }
         .hero-section {
-            background: var(--primary);
-            color: white;
-            padding: 2rem 1.5rem 1.8rem;
-            border-radius: 0 0 28px 28px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            right: -30px;
-            top: -30px;
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.04);
-        }
-
-        .hero-section::after {
-            content: '';
-            position: absolute;
-            left: -20px;
-            bottom: -50px;
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.03);
-        }
-
-        .logo {
-            font-family: 'Fraunces', serif;
-            font-size: clamp(26px, 6vw, 34px);
-            font-weight: 600;
-            letter-spacing: -0.3px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .logo span {
-            color: var(--accent);
-        }
-
-        .tagline {
-            font-size: clamp(12px, 4vw, 14px);
-            color: rgba(255, 255, 255, 0.75);
-            margin-top: 6px;
-            font-weight: 400;
-        }
-
-        /* navigation - flexible wrap */
-        .nav-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 1.5rem;
-            position: relative;
-            z-index: 3;
-        }
-
-        .nav-btn {
-            background: rgba(255, 255, 255, 0.12);
-            backdrop-filter: blur(2px);
-            border: 0.5px solid rgba(255, 255, 255, 0.25);
-            color: white;
-            font-size: 0.85rem;
-            font-weight: 500;
-            padding: 8px 18px;
-            border-radius: 40px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            font-family: 'DM Sans', sans-serif;
-        }
-
-        .nav-btn.active, .nav-btn:hover {
-            background: rgba(255, 255, 255, 0.25);
-            border-color: var(--accent);
-        }
-
-        /* stats row - flexible grid */
-        .stats-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 12px;
-            padding: 1.2rem 1.5rem 0.5rem;
-            max-width: 100%;
-        }
-
-        .stat-item {
-            background: var(--bg-card);
-            border-radius: 24px;
-            padding: 12px 18px;
-            text-align: center;
-            flex: 1;
-            min-width: 90px;
-            box-shadow: var(--shadow-sm);
-            border: 0.5px solid var(--border-light);
-        }
-
-        .stat-number {
-            font-family: 'Fraunces', serif;
-            font-size: clamp(22px, 6vw, 28px);
-            font-weight: 700;
-            color: var(--primary);
-        }
-
-        .stat-label {
-            font-size: 12px;
-            color: #6b756b;
-            letter-spacing: -0.2px;
-            margin-top: 4px;
-        }
-
-        /* page sections */
-        .page {
-            display: none;
-            padding: 1.2rem 1.2rem 2rem;
-            animation: fadeIn 0.25s ease;
-        }
-
-        .page.active-page {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(8px);}
-            to { opacity: 1; transform: translateY(0);}
-        }
-
-        .section-title {
-            font-family: 'Fraunces', serif;
-            font-size: 1.6rem;
-            font-weight: 600;
-            margin: 0.5rem 0 1.2rem;
-            color: var(--text-dark);
-            letter-spacing: -0.3px;
-        }
-
-        /* subject cards grid */
-        .subjects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 14px;
-            margin-bottom: 1.5rem;
-        }
-
-        .subject-card {
-            background: var(--bg-card);
-            border-radius: var(--radius-card);
-            padding: 1.2rem;
-            border: 0.5px solid var(--border-light);
-            transition: all 0.2s;
-            cursor: pointer;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .subject-card:hover {
-            border-color: var(--primary);
-            transform: translateY(-2px);
-        }
-
-        .subject-icon {
-            font-size: 2rem;
-            margin-bottom: 8px;
-        }
-
-        .subject-name {
-            font-weight: 600;
-            font-size: 1rem;
-        }
-
-        .subject-meta {
-            font-size: 0.7rem;
-            color: var(--text-muted);
-            margin-top: 4px;
-        }
-
-        /* paper list */
-        .paper-list {
-            background: var(--bg-card);
-            border-radius: var(--radius-card);
-            border: 0.5px solid var(--border-light);
-            overflow: hidden;
-        }
-
-        .paper-row {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1rem 1.2rem;
-            border-bottom: 0.5px solid #efefe7;
-            gap: 12px;
-        }
-
-        .paper-row:last-child {
-            border-bottom: none;
-        }
-
-        .paper-info {
-            flex: 2;
-            min-width: 140px;
-        }
-
-        .paper-title {
-            font-weight: 600;
-            font-size: 0.95rem;
-        }
-
-        .paper-year {
-            font-size: 0.7rem;
-            color: var(--text-muted);
-        }
-
-        .download-btn {
-            background: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 40px;
-            padding: 8px 22px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: background 0.15s;
-            font-family: 'DM Sans', sans-serif;
-        }
-
-        .download-btn:active {
-            background: var(--primary-dark);
-        }
-
-        /* quiz container */
-        .quiz-card {
-            background: var(--bg-card);
-            border-radius: var(--radius-card);
-            padding: 1.5rem;
-            border: 0.5px solid var(--border-light);
-            box-shadow: var(--shadow-sm);
-        }
-
-        .quiz-subjects {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 1.5rem;
-        }
-
-        .quiz-subj {
-            background: transparent;
-            border: 1px solid var(--border-light);
-            padding: 8px 22px;
-            border-radius: 40px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .quiz-subj.active, .quiz-subj:hover {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-        }
-
-        .progress-bar-bg {
-            background: #eaece5;
-            border-radius: 20px;
-            height: 6px;
-            margin-bottom: 1.2rem;
-        }
-
-        .progress-fill {
-            background: var(--accent);
-            height: 6px;
-            border-radius: 20px;
-            width: 0%;
-            transition: width 0.2s;
-        }
-
-        .question-text {
-            font-weight: 500;
-            font-size: 1rem;
-            margin: 1rem 0 1.2rem;
-            line-height: 1.45;
-        }
-
-        .options-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 12px;
-            margin-bottom: 1rem;
-        }
-
-        .opt-btn {
-            background: #fefcf5;
-            border: 1px solid var(--border-light);
-            border-radius: 18px;
-            padding: 12px 14px;
-            font-size: 0.85rem;
-            text-align: left;
-            cursor: pointer;
-            transition: all 0.1s;
-            font-family: 'DM Sans', sans-serif;
-        }
-
-        .opt-btn:hover:not(:disabled) {
-            border-color: var(--primary);
-            background: #f6faf2;
-        }
-
-        .opt-btn.correct {
-            background: #e1f3d6;
-            border-color: #3b6d11;
-            color: #2b5e0a;
-        }
-
-        .opt-btn.wrong {
-            background: #fce9e9;
-            border-color: #b53b3b;
-            color: #a12424;
-        }
-
-        .explanation {
-            background: var(--primary-light);
-            border-left: 4px solid var(--accent);
-            border-radius: 16px;
-            padding: 12px 16px;
-            font-size: 0.8rem;
-            display: none;
-            margin: 12px 0;
-        }
-
-        .next-btn {
-            background: var(--primary);
-            width: 100%;
-            border: none;
-            padding: 12px;
-            border-radius: 40px;
-            color: white;
-            font-weight: 600;
-            display: none;
-            cursor: pointer;
-        }
-
-        .score-area {
-            text-align: center;
-            padding: 1rem 0;
-        }
-
-        .score-num {
-            font-family: 'Fraunces', serif;
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--primary);
-        }
-
-        .retry-btn {
-            background: var(--primary);
-            border: none;
-            padding: 10px 28px;
-            border-radius: 40px;
-            color: white;
-            margin-top: 1rem;
-            cursor: pointer;
-        }
-
-        /* AI tip box */
-        .tip-card {
-            background: var(--primary-light);
-            border-radius: var(--radius-card);
-            padding: 1rem 1.2rem;
-            margin-top: 1.4rem;
-            border: 0.5px solid #d1e2bd;
-        }
-
-        .tip-label {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
-            color: #2c6e0e;
-        }
-
-        /* About section */
-        .about-card {
-            background: white;
-            border-radius: var(--radius-card);
-            padding: 1.5rem;
-            border: 0.5px solid var(--border-light);
-        }
-
-        .value-badge {
-            display: inline-block;
-            background: var(--primary-light);
-            padding: 8px 16px;
-            border-radius: 60px;
-            font-size: 0.75rem;
-            font-weight: 500;
-            margin: 0.2rem 0.3rem;
-        }
-
-        /* Contact section */
-        .contact-card {
-            background: white;
-            border-radius: var(--radius-card);
-            padding: 0 0.2rem 1.2rem;
-            border: 0.5px solid var(--border-light);
-            overflow: hidden;
-        }
-
-        .contact-row {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 14px;
-            padding: 14px 1.2rem;
-            border-bottom: 0.5px solid #efefe7;
-        }
-
-        .contact-icon {
-            width: 44px;
-            height: 44px;
-            background: var(--primary-light);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-            flex-shrink: 0;
-        }
-
-        .contact-detail {
-            flex: 1;
-        }
-
-        .contact-label {
-            font-size: 0.7rem;
-            color: #6f7c6f;
-        }
-
-        .contact-value {
-            font-weight: 500;
-            font-size: 0.95rem;
-            word-break: break-word;
-        }
-
-        .form-group {
-            margin-bottom: 1rem;
-            padding: 0 1.2rem;
-        }
-
-        input, textarea, select {
-            width: 100%;
-            padding: 12px 14px;
-            border-radius: 18px;
-            border: 0.5px solid var(--border-light);
-            font-family: 'DM Sans', sans-serif;
-            font-size: 0.9rem;
-            background: white;
-            outline: none;
-            transition: border 0.1s;
-        }
-
-        input:focus, textarea:focus {
-            border-color: var(--primary);
-        }
-
-        .send-btn {
-            background: var(--primary);
-            width: calc(100% - 2.4rem);
-            margin: 0.5rem 1.2rem 0.8rem;
-            border: none;
-            padding: 12px;
-            border-radius: 40px;
-            color: white;
-            font-weight: 600;
-            cursor: pointer;
-        }
-
-        .success-msg {
-            background: #e1f3d8;
-            border-radius: 18px;
-            padding: 12px;
-            margin: 12px 1.2rem;
-            text-align: center;
-            display: none;
-        }
-
-        /* ConvertKit Form Styles - integrated cleanly */
-        .subscribe-section {
-            background: white;
-            border-radius: var(--radius-card);
-            border: 0.5px solid var(--border-light);
-            margin: 1.5rem 0 0.5rem;
-            overflow: hidden;
-            box-shadow: var(--shadow-sm);
-        }
-        .subscribe-header {
-            background: var(--primary-light);
-            padding: 1rem 1.2rem;
-            text-align: center;
-            border-bottom: 0.5px solid #d1e2bd;
-        }
-        .subscribe-header h3 {
-            font-family: 'Fraunces', serif;
-            font-size: 1.2rem;
-            color: var(--primary-dark);
-            margin-bottom: 4px;
-        }
-        .subscribe-header p {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-        .formkit-form {
-            padding: 1rem 1.2rem 1.2rem !important;
-            background: white !important;
-            max-width: 100% !important;
-        }
-        .formkit-fields {
-            display: flex !important;
-            flex-wrap: wrap !important;
-            gap: 10px !important;
-            align-items: flex-end !important;
-        }
-        .formkit-field {
-            flex: 2 !important;
-            min-width: 180px !important;
-        }
-        .formkit-submit {
-            background: var(--primary) !important;
-            border-radius: 40px !important;
-            padding: 10px 24px !important;
-            font-weight: 600 !important;
-            font-family: 'DM Sans', sans-serif !important;
-            border: none !important;
-            cursor: pointer !important;
-        }
-        .formkit-submit:hover {
-            background: var(--primary-dark) !important;
-        }
-        .formkit-input {
-            border-radius: 40px !important;
-            border: 1px solid var(--border-light) !important;
-            padding: 10px 16px !important;
-            font-size: 0.85rem !important;
-        }
-        .formkit-powered-by-convertkit-container {
-            text-align: center;
-            font-size: 0.7rem;
-            padding: 0 0 8px 0;
-        }
-        @media (max-width: 560px) {
-            .formkit-fields {
-                flex-direction: column !important;
-            }
-            .formkit-submit {
-                width: 100% !important;
-            }
-        }
-        /* Floating Subscribe Button (compliance: non-intrusive, clear CTA) */
-        .float-subscribe-btn {
-            position: fixed;
-            bottom: 24px;
-            right: 20px;
-            background: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 60px;
-            padding: 12px 24px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            cursor: pointer;
-            box-shadow: 0 6px 20px rgba(0, 90, 0, 0.3);
-            z-index: 1000;
-            font-family: 'DM Sans', sans-serif;
-            transition: all 0.2s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .float-subscribe-btn:hover {
-            background: var(--primary-dark);
-            transform: scale(1.02);
-        }
-        @media (max-width: 560px) {
-            .float-subscribe-btn {
-                bottom: 16px;
-                right: 16px;
-                padding: 10px 18px;
-                font-size: 0.8rem;
-            }
-        }
-        /* Modal Overlay for ConvertKit (since original uses modal trigger) */
-        .custom-modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(0,0,0,0.7);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-        }
-        .custom-modal-content {
-            max-width: 500px;
-            width: 90%;
-            background: white;
-            border-radius: 28px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-            animation: fadeInUp 0.2s;
-        }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px);}
-            to { opacity: 1; transform: translateY(0);}
-        }
-        .modal-close {
-            text-align: right;
-            padding: 10px 16px 0;
-            cursor: pointer;
-            font-size: 24px;
-            color: #888;
-        }
-        footer {
-            text-align: center;
-            font-size: 0.7rem;
-            padding: 1.8rem 1rem;
-            color: #8b9a8b;
-            border-top: 0.5px solid #e2e2d8;
-            margin-top: 1rem;
-        }
-        /* Google AdSense Compliance: No fake ads, no misleading clicks */
-        .adsense-compliance-note {
-            font-size: 11px;
-            color: #8f9e8f;
-            text-align: center;
-            margin-top: 1rem;
-        }
-        @media (min-width: 1000px) {
-            .app-container {
-                border-radius: 0 0 32px 32px;
-            }
-            .hero-section {
-                border-radius: 0 0 32px 32px;
-            }
-            .subjects-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-        }
+            background: var(--primary); color: white; padding: 2rem 1.5rem 1.8rem;
+            border-radius: 0 0 28px 28px; position: relative; overflow: hidden;
+        }
+        .hero-section::before { content: ''; position: absolute; right: -30px; top: -30px; width: 180px; height: 180px; border-radius: 50%; background: rgba(255,255,255,0.04); }
+        .hero-section::after { content: ''; position: absolute; left: -20px; bottom: -50px; width: 140px; height: 140px; border-radius: 50%; background: rgba(255,255,255,0.03); }
+        .logo { font-family: 'Fraunces', serif; font-size: clamp(26px, 6vw, 34px); font-weight: 600; letter-spacing: -0.3px; position: relative; z-index: 2; }
+        .logo span { color: var(--accent); }
+        .tagline { font-size: clamp(12px, 4vw, 14px); color: rgba(255,255,255,0.75); margin-top: 6px; }
+        .nav-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 1.5rem; position: relative; z-index: 3; }
+        .nav-btn { background: rgba(255,255,255,0.12); backdrop-filter: blur(2px); border: 0.5px solid rgba(255,255,255,0.25); color: white; font-size: 0.85rem; font-weight: 500; padding: 8px 18px; border-radius: 40px; cursor: pointer; transition: all 0.2s; font-family: 'DM Sans', sans-serif; }
+        .nav-btn.active, .nav-btn:hover { background: rgba(255,255,255,0.25); border-color: var(--accent); }
+        .stats-grid { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; padding: 1.2rem 1.5rem 0.5rem; }
+        .stat-item { background: var(--bg-card); border-radius: 24px; padding: 12px 18px; text-align: center; flex: 1; min-width: 90px; box-shadow: var(--shadow-sm); border: 0.5px solid var(--border-light); }
+        .stat-number { font-family: 'Fraunces', serif; font-size: clamp(22px, 6vw, 28px); font-weight: 700; color: var(--primary); }
+        .stat-label { font-size: 12px; color: #6b756b; letter-spacing: -0.2px; margin-top: 4px; }
+        .page { display: none; padding: 1.2rem 1.2rem 2rem; animation: fadeIn 0.25s ease; }
+        .page.active-page { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+        .section-title { font-family: 'Fraunces', serif; font-size: 1.6rem; font-weight: 600; margin: 0.5rem 0 1.2rem; color: var(--text-dark); }
+        .board-selector { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 1.5rem; }
+        .board-btn { background: transparent; border: 1px solid var(--border-light); padding: 10px 24px; border-radius: 40px; font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: all 0.2s; font-family: 'DM Sans', sans-serif; }
+        .board-btn.active, .board-btn:hover { background: var(--primary); color: white; border-color: var(--primary); }
+        .level-selector { display: flex; flex-wrap: wrap; gap: 10px; margin: 0.5rem 0 1.2rem; }
+        .level-btn { background: transparent; border: 1px solid var(--border-light); padding: 6px 18px; border-radius: 40px; font-weight: 500; font-size: 0.85rem; cursor: pointer; transition: all 0.2s; font-family: 'DM Sans', sans-serif; }
+        .level-btn.active, .level-btn:hover { background: var(--primary); color: white; border-color: var(--primary); }
+        .subjects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; margin-bottom: 1.5rem; }
+        .subject-card { background: var(--bg-card); border-radius: var(--radius-card); padding: 1.2rem; border: 0.5px solid var(--border-light); transition: all 0.2s; cursor: pointer; box-shadow: var(--shadow-sm); }
+        .subject-card:hover { border-color: var(--primary); transform: translateY(-2px); }
+        .subject-icon { font-size: 2rem; margin-bottom: 8px; }
+        .subject-name { font-weight: 600; font-size: 1rem; }
+        .subject-meta { font-size: 0.7rem; color: var(--text-muted); margin-top: 4px; }
+        .paper-list { background: var(--bg-card); border-radius: var(--radius-card); border: 0.5px solid var(--border-light); overflow: hidden; }
+        .study-guides-list { margin-bottom: 1rem; }
+        .study-guides-label { font-size: 0.75rem; font-weight: 600; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+        .guide-card { display: flex; align-items: center; justify-content: space-between; gap: 12px; background: var(--primary-light); border: 0.5px solid #d1e2bd; border-radius: 16px; padding: 12px 16px; margin-bottom: 8px; text-decoration: none; transition: all 0.15s; }
+        .guide-card:hover { background: #e2f0d5; }
+        .guide-card-title { font-weight: 600; font-size: 0.88rem; color: var(--text-dark); }
+        .guide-card-sub { font-size: 0.7rem; color: var(--text-muted); margin-top: 2px; }
+        .guide-card-arrow { color: var(--primary); font-size: 1.1rem; flex-shrink: 0; }
+        .paper-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; padding: 1rem 1.2rem; border-bottom: 0.5px solid #efefe7; gap: 12px; }
+        .paper-row:last-child { border-bottom: none; }
+        .paper-info { flex: 2; min-width: 140px; }
+        .paper-title { font-weight: 600; font-size: 0.95rem; }
+        .paper-year { font-size: 0.7rem; color: var(--text-muted); }
+        .download-btn { background: var(--primary); color: white; border: none; border-radius: 40px; padding: 8px 22px; font-size: 0.8rem; font-weight: 500; cursor: pointer; transition: background 0.15s; font-family: 'DM Sans', sans-serif; text-decoration: none; display: inline-block; }
+        .download-btn:hover { background: var(--primary-dark); }
+        .quiz-card { background: var(--bg-card); border-radius: var(--radius-card); padding: 1.5rem; border: 0.5px solid var(--border-light); box-shadow: var(--shadow-sm); }
+        .quiz-subjects { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 1.5rem; }
+        .quiz-subj { background: transparent; border: 1px solid var(--border-light); padding: 8px 22px; border-radius: 40px; font-size: 0.85rem; font-weight: 500; cursor: pointer; transition: all 0.2s; }
+        .quiz-subj.active, .quiz-subj:hover { background: var(--primary); color: white; border-color: var(--primary); }
+        .progress-bar-bg { background: #eaece5; border-radius: 20px; height: 6px; margin-bottom: 1.2rem; }
+        .progress-fill { background: var(--accent); height: 6px; border-radius: 20px; width: 0%; transition: width 0.2s; }
+        .question-text { font-weight: 500; font-size: 1rem; margin: 1rem 0 1.2rem; line-height: 1.45; }
+        .options-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 1rem; }
+        .opt-btn { background: #fefcf5; border: 1px solid var(--border-light); border-radius: 18px; padding: 12px 14px; font-size: 0.85rem; text-align: left; cursor: pointer; transition: all 0.1s; font-family: 'DM Sans', sans-serif; }
+        .opt-btn:hover:not(:disabled) { border-color: var(--primary); background: #f6faf2; }
+        .opt-btn.correct { background: #e1f3d6; border-color: #3b6d11; color: #2b5e0a; }
+        .opt-btn.wrong { background: #fce9e9; border-color: #b53b3b; color: #a12424; }
+        .explanation { background: var(--primary-light); border-left: 4px solid var(--accent); border-radius: 16px; padding: 12px 16px; font-size: 0.8rem; display: none; margin: 12px 0; }
+        .next-btn { background: var(--primary); width: 100%; border: none; padding: 12px; border-radius: 40px; color: white; font-weight: 600; display: none; cursor: pointer; }
+        .score-area { text-align: center; padding: 1rem 0; }
+        .score-num { font-family: 'Fraunces', serif; font-size: 3rem; font-weight: 700; color: var(--primary); }
+        .retry-btn { background: var(--primary); border: none; padding: 10px 28px; border-radius: 40px; color: white; margin-top: 1rem; cursor: pointer; }
+        .tip-card { background: var(--primary-light); border-radius: var(--radius-card); padding: 1rem 1.2rem; margin-top: 1.4rem; border: 0.5px solid #d1e2bd; }
+        .tip-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; color: #2c6e0e; }
+        .about-card { background: white; border-radius: var(--radius-card); padding: 1.5rem; border: 0.5px solid var(--border-light); }
+        .home-about-preview { margin: 1.8rem 0; }
+        .home-about-hero { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); border-radius: var(--radius-card); padding: 1.6rem 1.4rem; color: white; position: relative; overflow: hidden; display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; }
+        .home-about-hero::before { content: ''; position: absolute; right: -40px; bottom: -40px; width: 150px; height: 150px; border-radius: 50%; background: rgba(255,255,255,0.06); }
+        .home-about-hero-text { flex: 1; min-width: 180px; position: relative; z-index: 2; }
+        .home-about-hero-text h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; margin-bottom: 6px; }
+        .home-about-hero-text p { font-size: 0.85rem; color: rgba(255,255,255,0.85); line-height: 1.5; }
+        .home-about-hero-illustration { flex-shrink: 0; width: 120px; height: 120px; position: relative; z-index: 2; }
+        .home-feature-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-top: 1rem; }
+        .home-feature-item { background: var(--bg-card); border: 0.5px solid var(--border-light); border-radius: var(--radius-card); padding: 1rem 0.9rem; box-shadow: var(--shadow-sm); text-align: center; }
+        .home-feature-icon { width: 46px; height: 46px; margin: 0 auto 8px; }
+        .home-feature-title { font-weight: 600; font-size: 0.85rem; margin-bottom: 3px; }
+        .home-feature-desc { font-size: 0.72rem; color: var(--text-muted); line-height: 1.4; }
+        @media (min-width: 1000px) { .home-feature-row { grid-template-columns: repeat(4, 1fr); } }
+        .value-badge { display: inline-block; background: var(--primary-light); padding: 8px 16px; border-radius: 60px; font-size: 0.75rem; font-weight: 500; margin: 0.2rem 0.3rem; }
+        .contact-card { background: white; border-radius: var(--radius-card); padding: 0 0.2rem 1.2rem; border: 0.5px solid var(--border-light); overflow: hidden; }
+        .contact-row { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; padding: 14px 1.2rem; border-bottom: 0.5px solid #efefe7; }
+        .contact-icon { width: 44px; height: 44px; background: var(--primary-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0; }
+        .contact-detail { flex: 1; }
+        .contact-label { font-size: 0.7rem; color: #6f7c6f; }
+        .contact-value { font-weight: 500; font-size: 0.95rem; word-break: break-word; }
+        .form-group { margin-bottom: 1rem; padding: 0 1.2rem; }
+        input, textarea { width: 100%; padding: 12px 14px; border-radius: 18px; border: 0.5px solid var(--border-light); font-family: 'DM Sans', sans-serif; font-size: 0.9rem; background: white; outline: none; transition: border 0.1s; }
+        input:focus, textarea:focus { border-color: var(--primary); }
+        .send-btn { background: var(--primary); width: calc(100% - 2.4rem); margin: 0.5rem 1.2rem 0.8rem; border: none; padding: 12px; border-radius: 40px; color: white; font-weight: 600; cursor: pointer; }
+        .success-msg { background: #e1f3d8; border-radius: 18px; padding: 12px; margin: 12px 1.2rem; text-align: center; display: none; }
+        .float-subscribe-btn { position: fixed; bottom: 24px; right: 20px; background: var(--primary); color: white; border: none; border-radius: 60px; padding: 12px 24px; font-size: 0.9rem; font-weight: 600; cursor: pointer; box-shadow: 0 6px 20px rgba(0,90,0,0.3); z-index: 1000; font-family: 'DM Sans', sans-serif; transition: all 0.2s; display: flex; align-items: center; gap: 8px; }
+        .float-subscribe-btn:hover { background: var(--primary-dark); transform: scale(1.02); }
+        footer { text-align: center; font-size: 0.7rem; padding: 1.8rem 1rem; color: #8b9a8b; border-top: 0.5px solid #e2e2d8; margin-top: 1rem; }
+        .adsense-compliance-note { font-size: 11px; color: #8f9e8f; text-align: center; margin-top: 1rem; }
+        .subscribe-section { background: white; border-radius: var(--radius-card); border: 0.5px solid var(--border-light); margin: 1.5rem 0 0.5rem; overflow: hidden; box-shadow: var(--shadow-sm); }
+        .subscribe-header { background: var(--primary-light); padding: 1rem 1.2rem; text-align: center; border-bottom: 0.5px solid #d1e2bd; }
+        .subscribe-header h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; color: var(--primary-dark); margin-bottom: 4px; }
+        .subscribe-header p { font-size: 0.8rem; color: var(--text-muted); }
+        .formkit-form { padding: 1rem 1.2rem 1.2rem !important; background: white !important; max-width: 100% !important; }
+        .formkit-fields { display: flex !important; flex-wrap: wrap !important; gap: 10px !important; align-items: flex-end !important; }
+        .formkit-field { flex: 2 !important; min-width: 180px !important; }
+        .formkit-submit { background: var(--primary) !important; border-radius: 40px !important; padding: 10px 24px !important; font-weight: 600 !important; font-family: 'DM Sans', sans-serif !important; border: none !important; cursor: pointer !important; }
+        .formkit-submit:hover { background: var(--primary-dark) !important; }
+        .formkit-input { border-radius: 40px !important; border: 1px solid var(--border-light) !important; padding: 10px 16px !important; font-size: 0.85rem !important; }
+        .formkit-powered-by-convertkit-container { text-align: center; font-size: 0.7rem; padding: 0 0 8px 0; }
+        @media (max-width: 560px) { .formkit-fields { flex-direction: column !important; } .formkit-submit { width: 100% !important; } }
+        @media (min-width: 1000px) { .app-container { border-radius: 0 0 32px 32px; } .hero-section { border-radius: 0 0 32px 32px; } .subjects-grid { grid-template-columns: repeat(4, 1fr); } }
     </style>
 </head>
 <body>
 <div class="app-container">
     <div class="hero-section">
         <div class="logo">Zim Study <span>Hub</span></div>
-        <div class="tagline">Free ZIMSEC Notes, Past Papers & Online Tests</div>
+        <div class="tagline">Free Exam Papers · ZIMSEC · Cambridge · NCC · AI Practice</div>
         <div class="nav-row" id="navContainer">
             <button class="nav-btn active" data-page="home">Home</button>
             <button class="nav-btn" data-page="papers">Past Papers</button>
@@ -721,45 +143,127 @@
     </div>
 
     <div class="stats-grid">
-        <div class="stat-item"><div class="stat-number">12+</div><div class="stat-label">Subjects</div></div>
-        <div class="stat-item"><div class="stat-number">80+</div><div class="stat-label">Past Papers</div></div>
-        <div class="stat-item"><div class="stat-number">Free</div><div class="stat-label">Always</div></div>
+        <div class="stat-item"><div class="stat-number">3</div><div class="stat-label">Exam Boards</div></div>
+        <div class="stat-item"><div class="stat-number">20+</div><div class="stat-label">Subjects</div></div>
+        <div class="stat-item"><div class="stat-number">100+</div><div class="stat-label">Papers</div></div>
     </div>
 
-    <!-- HOME PAGE -->
+    <!-- HOME -->
     <div id="page-home" class="page active-page">
-        <div class="section-title">📚 O Level Subjects</div>
-        <div class="subjects-grid">
-            <div class="subject-card" data-goto="papers"><div class="subject-icon">📐</div><div class="subject-name">Mathematics</div><div class="subject-meta">Papers + notes</div></div>
-            <div class="subject-card" data-goto="papers"><div class="subject-icon">🔬</div><div class="subject-name">Science</div><div class="subject-meta">Physics, Chem, Bio</div></div>
-            <div class="subject-card" data-goto="papers"><div class="subject-icon">📖</div><div class="subject-name">English</div><div class="subject-meta">Language & Lit</div></div>
-            <div class="subject-card" data-goto="papers"><div class="subject-icon">🌍</div><div class="subject-name">History</div><div class="subject-meta">Zim & World</div></div>
+        <div class="section-title">📚 Choose Your Board</div>
+        <div class="board-selector" id="boardSelectorHome">
+            <button class="board-btn active" data-board="zimsec">ZIMSEC</button>
+            <button class="board-btn" data-board="cambridge">Cambridge</button>
+            <button class="board-btn" data-board="edexcel">Edexcel</button>
+            <button class="board-btn" data-board="ib">IB</button>
+            <button class="board-btn" data-board="ncc">NCC</button>
+            <button class="board-btn" data-board="abma">ABMA</button>
         </div>
-        <!-- ConvertKit Subscription Box (inline in home) -->
-        <div class="subscribe-section" id="inlineSubscribe">
-            <div class="subscribe-header">
-                <h3>📧 Get Free Study Updates</h3>
-                <p>Subscribe for weekly past papers & exam tips — 100% free</p>
+        <div class="subjects-grid" id="homeSubjectsGrid">
+            <div class="subject-card" data-subject="maths"><div class="subject-icon">📐</div><div class="subject-name">Mathematics</div><div class="subject-meta">Papers & notes</div></div>
+            <div class="subject-card" data-subject="science"><div class="subject-icon">🔬</div><div class="subject-name">Science</div><div class="subject-meta">Physics, Chem, Bio</div></div>
+            <div class="subject-card" data-subject="english"><div class="subject-icon">📖</div><div class="subject-name">English</div><div class="subject-meta">Language & Lit</div></div>
+            <div class="subject-card" data-subject="history"><div class="subject-icon">🌍</div><div class="subject-name">History</div><div class="subject-meta">Zim & World</div></div>
+        </div>
+        <!-- ABOUT PREVIEW WITH ILLUSTRATIONS -->
+        <div class="home-about-preview">
+            <div class="home-about-hero">
+                <div class="home-about-hero-text">
+                    <h3>Built for Zimbabwean students 🇿🇼</h3>
+                    <p>Zim Study Hub brings ZIMSEC, Cambridge, Edexcel, IB, NCC & ABMA past papers, notes and AI-marked practice tests together — free, forever, in one place.</p>
+                </div>
+                <div class="home-about-hero-illustration">
+                    <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+                        <circle cx="60" cy="60" r="56" fill="rgba(255,255,255,0.08)"/>
+                        <rect x="28" y="58" width="64" height="10" rx="3" fill="#eef5e8"/>
+                        <rect x="32" y="46" width="56" height="10" rx="3" fill="#7ed957"/>
+                        <rect x="36" y="34" width="48" height="10" rx="3" fill="#eef5e8"/>
+                        <rect x="24" y="68" width="72" height="6" rx="3" fill="rgba(255,255,255,0.5)"/>
+                        <circle cx="82" cy="30" r="12" fill="#7ed957"/>
+                        <path d="M77 30l3.5 3.5L88 26" stroke="#004700" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
             </div>
-            <div id="convertkit-inline"></div>
+
+            <div class="home-feature-row">
+                <div class="home-feature-item">
+                    <svg class="home-feature-icon" viewBox="0 0 46 46" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="23" cy="23" r="22" fill="#eef5e8"/>
+                        <path d="M14 30V16a2 2 0 0 1 2-2h6v20h-6a2 2 0 0 1-2-2z" fill="#7ed957"/>
+                        <path d="M22 14h8a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-8V14z" fill="#005a00"/>
+                    </svg>
+                    <div class="home-feature-title">100% Free</div>
+                    <div class="home-feature-desc">No hidden fees, ever</div>
+                </div>
+                <div class="home-feature-item">
+                    <svg class="home-feature-icon" viewBox="0 0 46 46" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="23" cy="23" r="22" fill="#eef5e8"/>
+                        <circle cx="23" cy="23" r="12" fill="none" stroke="#005a00" stroke-width="2.5"/>
+                        <path d="M23 11v12l8 5" stroke="#7ed957" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                    </svg>
+                    <div class="home-feature-title">6 Exam Boards</div>
+                    <div class="home-feature-desc">ZIMSEC to NCC & IB</div>
+                </div>
+                <div class="home-feature-item">
+                    <svg class="home-feature-icon" viewBox="0 0 46 46" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="23" cy="23" r="22" fill="#eef5e8"/>
+                        <rect x="13" y="16" width="20" height="15" rx="2" fill="#005a00"/>
+                        <rect x="16" y="19" width="14" height="2" fill="#7ed957"/>
+                        <rect x="16" y="23" width="9" height="2" fill="#7ed957"/>
+                        <path d="M11 33h24" stroke="#005a00" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <div class="home-feature-title">AI-Marked Tests</div>
+                    <div class="home-feature-desc">Instant feedback</div>
+                </div>
+                <div class="home-feature-item">
+                    <svg class="home-feature-icon" viewBox="0 0 46 46" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="23" cy="23" r="22" fill="#eef5e8"/>
+                        <path d="M23 12c-6 0-10 4.5-10 10 0 4 2 6.5 4 8.5V33h12v-2.5c2-2 4-4.5 4-8.5 0-5.5-4-10-10-10z" fill="#7ed957"/>
+                        <rect x="19" y="34" width="8" height="3" rx="1.5" fill="#005a00"/>
+                    </svg>
+                    <div class="home-feature-title">Smart Study Tips</div>
+                    <div class="home-feature-desc">Bite-sized daily tips</div>
+                </div>
+            </div>
         </div>
-        <div class="tip-card">
-            <div class="tip-label">✨ AI study tip of the day</div>
-            <div id="dailyTip" style="font-size: 0.85rem; margin-top: 8px; line-height: 1.45;">Focus on past paper patterns — exam success is about smart practice.</div>
-        </div>
+
+        <div class="subscribe-section"><div class="subscribe-header"><h3>📧 Free Study Updates</h3><p>Past papers & exam tips — 100% free</p></div><div id="convertkit-inline"></div></div>
+        <div class="tip-card"><div class="tip-label">✨ AI study tip</div><div id="dailyTip" style="font-size:0.85rem; margin-top:8px;">Focus on past paper patterns — smart practice wins.</div></div>
     </div>
 
     <!-- PAST PAPERS -->
     <div id="page-papers" class="page">
-        <div class="section-title">📄 Past Papers (ZIMSEC)</div>
-        <div class="paper-list">
-            <div class="paper-row"><div class="paper-info"><div class="paper-title">Mathematics Paper 1</div><div class="paper-year">O Level · 2023</div></div><button class="download-btn" data-link="https://www.zimsec.co.zw/sample/maths-p1">Download</button></div>
-            <div class="paper-row"><div class="paper-info"><div class="paper-title">Mathematics Paper 2</div><div class="paper-year">O Level · 2023</div></div><button class="download-btn" data-link="https://www.zimsec.co.zw/sample/maths-p2">Download</button></div>
-            <div class="paper-row"><div class="paper-info"><div class="paper-title">English Language</div><div class="paper-year">O Level · 2023</div></div><button class="download-btn" data-link="https://www.zimsec.co.zw/sample/english">Download</button></div>
-            <div class="paper-row"><div class="paper-info"><div class="paper-title">Combined Science</div><div class="paper-year">O Level · 2022</div></div><button class="download-btn" data-link="https://www.zimsec.co.zw/sample/science">Download</button></div>
-            <div class="paper-row"><div class="paper-info"><div class="paper-title">History Paper 1</div><div class="paper-year">A Level · 2022</div></div><button class="download-btn" data-link="https://www.zimsec.co.zw/sample/history">Download</button></div>
+        <div class="section-title">📄 Past Papers</div>
+        <div class="board-selector" id="boardSelectorPapers">
+            <button class="board-btn active" data-board="zimsec">ZIMSEC</button>
+            <button class="board-btn" data-board="cambridge">Cambridge</button>
+            <button class="board-btn" data-board="edexcel">Edexcel</button>
+            <button class="board-btn" data-board="ib">IB</button>
+            <button class="board-btn" data-board="ncc">NCC</button>
+            <button class="board-btn" data-board="abma">ABMA</button>
         </div>
-        <p style="font-size:12px; margin-top:14px; color:#6c7a6c;">*Official ZIMSEC resources — free for educational use.</p>
+
+        <!-- NEW: ZIMSEC Level Selector (shown only when ZIMSEC is active) -->
+        <div id="zimsecLevelSelector" class="level-selector" style="display:flex;">
+            <button class="level-btn active" data-level="form1-4">Form 1–4</button>
+            <button class="level-btn" data-level="olevel">O Level</button>
+            <button class="level-btn" data-level="alevel">A Level</button>
+        </div>
+
+        <!-- NCC level selector (hidden by default) -->
+        <div id="nccLevelSelector" class="level-selector" style="display:none;">
+            <button class="level-btn active" data-level="lv3">Level 3</button>
+            <button class="level-btn" data-level="lv4">Level 4</button>
+        </div>
+
+        <div id="studyGuidesContainer" class="study-guides-list" style="display:none;">
+            <div class="study-guides-label">📖 Study Guides — written from real coursework</div>
+        </div>
+
+        <div class="paper-list" id="paperListContainer">
+            <!-- dynamically filled by JS -->
+        </div>
+        <p style="font-size:12px; margin-top:14px; color:#6c7a6c;">*Official resources — click Download to visit the official website.</p>
     </div>
 
     <!-- ONLINE TEST -->
@@ -776,32 +280,26 @@
         </div>
     </div>
 
-    <!-- ABOUT (merged) -->
+    <!-- ABOUT -->
     <div id="page-about" class="page">
         <div class="section-title">📖 About Zim Study Hub</div>
         <div class="about-card">
-            <p style="margin-bottom: 1rem; line-height: 1.6;">Zim Study Hub gives every Zimbabwean student free access to ZIMSEC O Level & A Level materials: past papers, summarized notes, and AI-powered tests.</p>
-            <div style="margin: 1rem 0;">
-                <span class="value-badge">📄 80+ Papers</span>
-                <span class="value-badge">📘 Smart Notes</span>
-                <span class="value-badge">✅ Auto-graded quizzes</span>
-                <span class="value-badge">🤖 Daily AI tips</span>
-            </div>
-            <p style="line-height: 1.6;">Founded in 2026, we're on a mission to make exam prep <strong>100% free and accessible</strong> — from Harare to Bulawayo and beyond. 💚</p>
-            <div style="margin-top: 1.2rem; background: #eef5e8; border-radius: 18px; padding: 12px; font-size: 0.8rem; text-align: center;">📍 Based in Bulawayo, Zimbabwe — built with love for students.</div>
+            <p style="margin-bottom:1rem; line-height:1.6;">Free access to ZIMSEC, Cambridge & NCC past papers, notes, and AI-powered tests for Zimbabwean students.</p>
+            <div style="margin:1rem 0;"><span class="value-badge">📄 100+ Papers</span><span class="value-badge">📘 Smart Notes</span><span class="value-badge">✅ Auto-graded</span><span class="value-badge">🤖 AI Tips</span></div>
+            <p style="line-height:1.6;">Built in 2026 for every student — from Harare to Bulawayo. 💚</p>
         </div>
     </div>
 
-    <!-- CONTACT (precise match + responsive) -->
+    <!-- CONTACT -->
     <div id="page-contact" class="page">
         <div class="section-title">📞 Contact & Support</div>
         <div class="contact-card">
             <div class="contact-row"><div class="contact-icon">📱</div><div class="contact-detail"><div class="contact-label">WhatsApp</div><div class="contact-value"><a href="https://wa.me/263786226747" style="color:#005a00; text-decoration:none;">+263 786 226 747</a></div></div></div>
             <div class="contact-row"><div class="contact-icon">📧</div><div class="contact-detail"><div class="contact-label">Email</div><div class="contact-value">info@zimstudyhub.co.zw</div></div></div>
             <div class="contact-row"><div class="contact-icon">🌐</div><div class="contact-detail"><div class="contact-label">Website</div><div class="contact-value">zimstudyhub.co.zw</div></div></div>
-            <div class="form-group"><input type="text" id="contactName" placeholder="Your name (e.g. Tinashe Moyo)"></div>
+            <div class="form-group"><input type="text" id="contactName" placeholder="Your name"></div>
             <div class="form-group"><input type="text" id="contactEmail" placeholder="Email / WhatsApp"></div>
-            <div class="form-group"><textarea rows="3" id="contactMsg" placeholder="Tell us about a past paper request, feedback, or question..."></textarea></div>
+            <div class="form-group"><textarea rows="3" id="contactMsg" placeholder="Past paper request, feedback, or question..."></textarea></div>
             <button class="send-btn" id="sendMsgBtn">Send message</button>
             <div id="contactSuccess" class="success-msg">✓ Thanks! We'll reply within 24h.</div>
         </div>
@@ -810,22 +308,13 @@
     <div class="adsense-compliance-note">📢 Educational resource — No misleading ads, family-safe content.</div>
 </div>
 
-<!-- Floating Subscribe for Free Button -->
 <button class="float-subscribe-btn" id="floatingSubscribeBtn">🔔 Subscribe for Free</button>
 
-<!-- Modal overlay for subscription form -->
-<div id="subscribeModal" class="custom-modal-overlay">
-    <div class="custom-modal-content">
-        <div class="modal-close" id="closeModalBtn">&times;</div>
-        <div id="modal-form-container"></div>
-    </div>
-</div>
-
-<!-- ConvertKit Script & Form Integration -->
+<!-- ConvertKit -->
 <script src="https://f.convertkit.com/ckjs/ck.5.js"></script>
 <script>
-    // ConvertKit form HTML (identical to provided, but with style adjustments)
-    const formHTML = `<form action="https://app.kit.com/forms/9398340/subscriptions" class="seva-form formkit-form" method="post" data-sv-form="9398340" data-uid="0381c18a64" data-format="modal" data-version="5" data-options='{"settings":{"after_subscribe":{"action":"message","success_message":"Success! Now check your email to confirm your subscription.","redirect_url":""},"analytics":{"google":null,"fathom":null,"facebook":null,"segment":null,"pinterest":null,"sparkloop":null,"googletagmanager":null},"modal":{"trigger":"timer","scroll_percentage":null,"timer":5,"devices":"all","show_once_every":15},"powered_by":{"show":true,"url":"https://kit.com/features/forms?utm_campaign=poweredby&utm_content=form&utm_medium=referral&utm_source=dynamic"},"recaptcha":{"enabled":false},"return_visitor":{"action":"show","custom_content":""},"slide_in":{"display_in":"bottom_right","trigger":"timer","scroll_percentage":null,"timer":5,"devices":"all","show_once_every":15},"sticky_bar":{"display_in":"top","trigger":"timer","scroll_percentage":null,"timer":5,"devices":"all","show_once_every":15}},"version":"5"}' min-width="400 500 600 700 800">
+    // ConvertKit form
+    const formHTML = `<form action="https://app.kit.com/forms/9398340/subscriptions" class="seva-form formkit-form" method="post" data-sv-form="9398340" data-uid="0381c18a64" data-format="modal" data-version="5" data-options='{"settings":{"after_subscribe":{"action":"message","success_message":"Success! Now check your email to confirm.","redirect_url":""},"analytics":{"google":null,"fathom":null,"facebook":null,"segment":null,"pinterest":null,"sparkloop":null,"googletagmanager":null},"modal":{"trigger":"timer","scroll_percentage":null,"timer":5,"devices":"all","show_once_every":15},"powered_by":{"show":true,"url":"https://kit.com/features/forms?utm_campaign=poweredby&utm_content=form&utm_medium=referral&utm_source=dynamic"},"recaptcha":{"enabled":false},"return_visitor":{"action":"show","custom_content":""},"slide_in":{"display_in":"bottom_right","trigger":"timer","scroll_percentage":null,"timer":5,"devices":"all","show_once_every":15},"sticky_bar":{"display_in":"top","trigger":"timer","scroll_percentage":null,"timer":5,"devices":"all","show_once_every":15}},"version":"5"}' min-width="400 500 600 700 800">
   <div data-style="clean">
     <ul class="formkit-alert formkit-alert-error" data-element="errors" data-group="alert"></ul>
     <div data-element="fields" data-stacked="false" class="seva-fields formkit-fields">
@@ -842,65 +331,296 @@
     </div>
   </div>
 </form>`;
-
-    // Insert inline form into home page
     document.getElementById('convertkit-inline').innerHTML = formHTML;
 
-    // Modal handling
-    const modal = document.getElementById('subscribeModal');
+    // Floating subscribe modal
+    const modal = document.createElement('div');
+    modal.id = 'subscribeModal';
+    modal.style.cssText = 'display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); z-index:2000; justify-content:center; align-items:center;';
+    modal.innerHTML = `<div style="max-width:500px; width:90%; background:white; border-radius:28px; overflow:hidden; box-shadow:0 20px 40px rgba(0,0,0,0.2); animation:fadeInUp 0.2s; position:relative;"><div style="text-align:right; padding:10px 16px 0; cursor:pointer; font-size:24px; color:#888;" id="closeModalBtn">&times;</div><div id="modal-form-container"></div></div>`;
+    document.body.appendChild(modal);
     const modalContainer = document.getElementById('modal-form-container');
-    const floatingBtn = document.getElementById('floatingSubscribeBtn');
-    const closeModalBtn = document.getElementById('closeModalBtn');
+    document.getElementById('floatingSubscribeBtn').addEventListener('click', () => { modalContainer.innerHTML = formHTML; modal.style.display = 'flex'; });
+    document.getElementById('closeModalBtn').addEventListener('click', () => { modal.style.display = 'none'; modalContainer.innerHTML = ''; });
+    modal.addEventListener('click', (e) => { if (e.target === modal) { modal.style.display = 'none'; modalContainer.innerHTML = ''; } });
 
-    floatingBtn.addEventListener('click', () => {
-        modalContainer.innerHTML = formHTML;
-        modal.style.display = 'flex';
-    });
-    function closeModal() {
-        modal.style.display = 'none';
-        modalContainer.innerHTML = '';
+    // ---------- DATA ----------
+    // ZIMSEC papers by level
+    const zimsecPapers = {
+        'form1-4': [
+            { title: 'Mathematics Form 1–4 (Combined)', year: '2023', link: 'https://www.zimsec.co.zw/sample/maths-form1-4' },
+            { title: 'English Form 1–4', year: '2023', link: 'https://www.zimsec.co.zw/sample/english-form1-4' },
+            { title: 'Integrated Science Form 1–4', year: '2022', link: 'https://www.zimsec.co.zw/sample/science-form1-4' },
+            { title: 'History Form 1–4', year: '2022', link: 'https://www.zimsec.co.zw/sample/history-form1-4' },
+            { title: 'Geography Form 1–4', year: '2021', link: 'https://www.zimsec.co.zw/sample/geography-form1-4' }
+        ],
+        'olevel': [
+            { title: 'Mathematics O Level Paper 1', year: '2023', link: 'https://www.zimsec.co.zw/sample/maths-o-p1' },
+            { title: 'Mathematics O Level Paper 2', year: '2023', link: 'https://www.zimsec.co.zw/sample/maths-o-p2' },
+            { title: 'English O Level Paper 1', year: '2023', link: 'https://www.zimsec.co.zw/sample/english-o-p1' },
+            { title: 'English O Level Paper 2', year: '2023', link: 'https://www.zimsec.co.zw/sample/english-o-p2' },
+            { title: 'Combined Science O Level Paper 1', year: '2022', link: 'https://www.zimsec.co.zw/sample/science-o-p1' },
+            { title: 'Combined Science O Level Paper 2', year: '2022', link: 'https://www.zimsec.co.zw/sample/science-o-p2' },
+            { title: 'History O Level Paper 1', year: '2022', link: 'https://www.zimsec.co.zw/sample/history-o-p1' },
+            { title: 'Geography O Level Paper 1', year: '2021', link: 'https://www.zimsec.co.zw/sample/geography-o-p1' }
+        ],
+        'alevel': [
+            { title: 'Mathematics A Level Paper 1', year: '2023', link: 'https://www.zimsec.co.zw/sample/maths-a-p1' },
+            { title: 'Mathematics A Level Paper 2', year: '2023', link: 'https://www.zimsec.co.zw/sample/maths-a-p2' },
+            { title: 'English A Level Paper 1', year: '2023', link: 'https://www.zimsec.co.zw/sample/english-a-p1' },
+            { title: 'Physics A Level Paper 1', year: '2022', link: 'https://www.zimsec.co.zw/sample/physics-a-p1' },
+            { title: 'Chemistry A Level Paper 1', year: '2022', link: 'https://www.zimsec.co.zw/sample/chemistry-a-p1' },
+            { title: 'Biology A Level Paper 1', year: '2022', link: 'https://www.zimsec.co.zw/sample/biology-a-p1' },
+            { title: 'History A Level Paper 1', year: '2022', link: 'https://www.zimsec.co.zw/sample/history-a-p1' },
+            { title: 'Geography A Level Paper 1', year: '2021', link: 'https://www.zimsec.co.zw/sample/geography-a-p1' }
+        ]
+    };
+
+    const studyGuides = {
+        ncc: {
+            lv4: [
+                { title: 'Computer Networks — Complete Study Guide', sub: 'OSI model, TCP/IP, subnetting, VoIP & exam technique', link: 'ncc-l4-computer-networks-guide.html' },
+                { title: 'Databases — Complete Study Guide', sub: 'Keys, ER diagrams, normalisation & SQL', link: 'ncc-l4-databases-guide.html' },
+                { title: 'Algorithms & Maths Concepts — Complete Study Guide', sub: 'Pseudocode, trace tables, logic & number systems', link: 'ncc-l4-algorithms-maths-guide.html' }
+            ]
+        }
+    };
+
+    const nccModules = {
+        lv3: [
+            { title: 'Study and Communication Skills (Level 3)', year: 'L3DC', link: 'https://www.nccedu.com/qualifications/diplomas/ncc-education-level-3-diploma-in-computing-l3dc/' },
+            { title: 'Culture Studies (Level 3)', year: 'L3DC', link: 'https://www.nccedu.com/qualifications/diplomas/ncc-education-level-3-diploma-in-computing-l3dc/' },
+            { title: 'Introduction to Computer Science (Level 3)', year: 'L3DC', link: 'https://www.nccedu.com/qualifications/diplomas/ncc-education-level-3-diploma-in-computing-l3dc/' },
+            { title: 'Introduction to Programming (Level 3)', year: 'L3DC', link: 'https://www.nccedu.com/qualifications/diplomas/ncc-education-level-3-diploma-in-computing-l3dc/' },
+            { title: 'Foundation Mathematics (Level 3)', year: 'L3DC', link: 'https://www.nccedu.com/qualifications/diplomas/ncc-education-level-3-diploma-in-computing-l3dc/' }
+        ],
+        lv4: [
+            { title: 'Skills for Computing (Level 4)', year: 'L4DC', link: 'https://www.nccedu.com/qualifications/diplomas/ncc-education-level-4-diploma-in-computing-l4dc/' },
+            { title: 'Computer Systems (Level 4)', year: 'L4DC', link: 'https://www.nccedu.com/qualifications/diplomas/ncc-education-level-4-diploma-in-computing-l4dc/' },
+            { title: 'Databases (Level 4)', year: 'L4DC', link: 'https://www.nccedu.com/qualifications/diplomas/ncc-education-level-4-diploma-in-computing-l4dc/' },
+            { title: 'Computer Networks — Mark Scheme', year: 'September 2024', link: 'https://www.mediafire.com/file/vr2nsdunglbnt3k/September_2024_Networks_MS.pdf/file' },
+            { title: 'Computer Networks — Mark Scheme', year: 'November 2024', link: 'https://www.mediafire.com/file/84kqlsfs496njr9/November_2024_Networks_MS.pdf/file' },
+            { title: 'Computer Networks — Question Paper', year: 'Spring 2025', link: 'https://www.mediafire.com/file/9p9io9fv5h0qaje/L4DC_-_L4DCBM_-_Computer_Network_-_Exam_-_Spring_2025_-_QP__%255B38132%255D.pdf/file' },
+            { title: 'Computer Networks — Mark Scheme', year: 'Spring 2025', link: 'https://www.mediafire.com/file/55vapoysafec4tf/March_2025__Computer_Network_MS_-_Exam_-_Spring_2025_-_MS__%255B41720%255D.pdf/file' },
+            { title: 'Computer Networks — Mark Scheme', year: 'Summer 2025', link: 'https://www.mediafire.com/file/greapx3qyrxc6h5/June_2025_Computer_Networks_MS_-_Exam_-_Summer_2025_-MS_%255B45796%255D.pdf/file' },
+            { title: 'Designing and Developing Object-Oriented Computer Programs (Level 4)', year: 'L4DC', link: 'https://www.nccedu.com/qualifications/diplomas/ncc-education-level-4-diploma-in-computing-l4dc/' },
+            { title: 'Software Development Techniques (Level 4)', year: 'L4DC', link: 'https://www.nccedu.com/qualifications/diplomas/ncc-education-level-4-diploma-in-computing-l4dc/' },
+            { title: 'Designing and Developing a Website (Level 4)', year: 'L4DC', link: 'https://www.nccedu.com/qualifications/diplomas/ncc-education-level-4-diploma-in-computing-l4dc/' },
+            { title: 'Algorithms & Maths Concepts for Computing — Study Guide', year: 'Guide', link: 'https://www.mediafire.com/file/g417zq01v01175d/AMC_Exam_Study_Guide.pdf/file' },
+            { title: 'Algorithms & Maths Concepts for Computing — Question Paper', year: 'Spring 2025', link: 'https://www.mediafire.com/file/ko4156rytbnqqj9/L4DC_-_L4DCBM_-_Algorithms_and_Mathematical_Concepts_for_Computing_-_Spring_2025_-_QP__%255B35989%255D.pdf/file' },
+            { title: 'Algorithms & Maths Concepts for Computing — Mark Scheme', year: 'Spring 2025', link: 'https://www.mediafire.com/file/s6hthragjqr1vtx/L4DC_-_L4DCBM_-_Algorithms_and_Mathematical_Concepts_for_Computing_-_Spring_2025_-_MS_%255B41719%255D.pdf/file' },
+            { title: 'Algorithms & Maths Concepts for Computing — Question Paper', year: 'Summer 2025', link: 'https://www.mediafire.com/file/wlulrnedka54giv/L4DC_-_L4DCBM_-_Algorithms_and_Mathematical_Concepts_for_Computing_-_Exam_-_Summer_2025_-_QP_%255B42557%255D.pdf/file' },
+            { title: 'Algorithms & Maths Concepts for Computing — Mark Scheme', year: 'Summer 2025', link: 'https://www.mediafire.com/file/wdgufwzu48yb28f/L4DC_-_L4DCBM_-_Algorithms_and_Mathematical_Concepts_for_Computing_-_Exam_-_Summer_2025_-_MS_%255B45793%255D.pdf/file' },
+            { title: 'Algorithms & Maths Concepts for Computing — Question Paper', year: 'Autumn 2025', link: 'https://www.mediafire.com/file/zkrrexno7zm0h0j/L4DC_L4DCBM_-_Algorithms_and_Mathematical_Concepts_for_Computing_-_Exam_-_Autumn_2025_-_QP_%255B49092%255D.pdf/file' },
+            { title: 'Algorithms & Maths Concepts for Computing — Mark Scheme', year: 'Autumn 2025', link: 'https://www.mediafire.com/file/eblzaoh4b0ny2tx/L4DC_L4DCBM_-_Algorithms_and_Mathematical_Concepts_for_Computing_-_Exam_-_Autumn_2025_-_MS_%255B51287%255D.pdf/file' },
+            { title: 'Algorithms & Maths Concepts for Computing — Mark Scheme', year: 'Winter 2025', link: 'https://www.mediafire.com/file/adk8vmc6k6ifpz9/L4DC_L4DCBM-_Algorithms_and_Mathematical_Concepts_for_Computing_-_Exam_-_Winter_2025_-_MS_%255B57682%255D.pdf/file' },
+            { title: 'Algorithms & Maths Concepts for Computing — Question Paper', year: 'Spring 2026', link: 'https://www.mediafire.com/file/b7jr3j9mc9rtn2d/L4DC_L4DCBM_-_Algorithms_and_Mathematical_Concepts_for_Computing_-_Exam_-_Spring_2026_-_QP_%255B57953%255D.pdf/file' },
+            { title: 'Algorithms & Maths Concepts for Computing — Mark Scheme', year: 'Spring 2026', link: 'https://www.mediafire.com/file/hikh2hh10tf32r6/L4DC_L4DCBM_-_Algorithms_and_Mathematical_Concepts_for_Computing_-_Exam_-_Spring_2026_-_MS_%255B66107%255D.pdf/file' }
+        ]
+    };
+
+    const papersDB = {
+        zimsec: {
+            subjects: ['Mathematics', 'Science', 'English', 'History', 'Geography'],
+            papers: [] // dynamic based on level
+        },
+        cambridge: {
+            subjects: ['Mathematics', 'Physics', 'Chemistry', 'Biology', 'English', 'History'],
+            papers: [
+                { title: 'Mathematics (0580) P1', year: '2023', link: 'https://www.cambridge.org/sample/maths-p1' },
+                { title: 'Mathematics (0580) P2', year: '2023', link: 'https://www.cambridge.org/sample/maths-p2' },
+                { title: 'Physics (0625) P1', year: '2022', link: 'https://www.cambridge.org/sample/physics-p1' },
+                { title: 'Chemistry (0620) P2', year: '2022', link: 'https://www.cambridge.org/sample/chemistry-p2' },
+                { title: 'English (0500) P1', year: '2023', link: 'https://www.cambridge.org/sample/english-p1' }
+            ]
+        },
+        edexcel: {
+            subjects: ['Mathematics', 'Physics', 'Chemistry', 'Biology', 'English', 'Business Studies', 'Computer Science'],
+            papers: [
+                { title: 'Mathematics A', year: 'Official site', link: 'https://qualifications.pearson.com/en/qualifications/edexcel-igcses/mathematics-a-2016.html' },
+                { title: 'Physics', year: 'Official site', link: 'https://qualifications.pearson.com/en/qualifications/edexcel-igcses/physics-2017.html' },
+                { title: 'Chemistry', year: 'Official site', link: 'https://qualifications.pearson.com/en/qualifications/edexcel-igcses/chemistry-2017.html' },
+                { title: 'Biology', year: 'Official site', link: 'https://qualifications.pearson.com/en/qualifications/edexcel-igcses/biology-2017.html' },
+                { title: 'English Language A', year: 'Official site', link: 'https://qualifications.pearson.com/en/qualifications/edexcel-igcses/english-language-a-2016.html' },
+                { title: 'Business Studies', year: 'Official site', link: 'https://qualifications.pearson.com/en/qualifications/edexcel-igcses/business-2017.html' },
+                { title: 'Computer Science', year: 'Official site', link: 'https://qualifications.pearson.com/en/qualifications/edexcel-igcses/computer-science-2016.html' }
+            ]
+        },
+        ib: {
+            subjects: ['Mathematics', 'Physics', 'Chemistry', 'Biology', 'English', 'Computer Science'],
+            papers: [
+                { title: 'Mathematics: Analysis & Approaches', year: 'Official site', link: 'https://www.ibo.org/programmes/diploma-programme/curriculum/sciences/mathematics-analysis-and-approaches/' },
+                { title: 'Physics', year: 'Official site', link: 'https://www.ibo.org/programmes/diploma-programme/curriculum/sciences/physics/' },
+                { title: 'Chemistry', year: 'Official site', link: 'https://www.ibo.org/programmes/diploma-programme/curriculum/sciences/chemistry/' },
+                { title: 'Biology', year: 'Official site', link: 'https://www.ibo.org/programmes/diploma-programme/curriculum/sciences/biology/' },
+                { title: 'English A: Language and Literature', year: 'Official site', link: 'https://www.ibo.org/programmes/diploma-programme/curriculum/studies-in-language-and-literature/' },
+                { title: 'Computer Science', year: 'Official site', link: 'https://www.ibo.org/programmes/diploma-programme/curriculum/sciences/computer-science/' }
+            ]
+        },
+        ncc: {
+            subjects: ['Business Studies', 'Information Technology', 'Accounting', 'Economics', 'Mathematics', 'Computing'],
+            papers: [] // dynamic based on level
+        },
+        abma: {
+            subjects: ['Business Management', 'Computer Engineering', 'Office Administration', 'Procurement & Supply Chain', 'Project Management', 'Community Development', 'Hospitality'],
+            papers: [
+                { title: 'Business Management', year: 'Official site', link: 'https://abma.uk.com/qualifications/regulated-qualifications-uk-only/' },
+                { title: 'Computer Engineering', year: 'Official site', link: 'https://abma.uk.com/qualifications/' },
+                { title: 'Office Administration', year: 'Official site', link: 'https://abma.uk.com/qualifications/professional-qualifications/' },
+                { title: 'Procurement & Supply Chain', year: 'Official site', link: 'https://abma.uk.com/qualifications/professional-qualifications/' },
+                { title: 'Project Management', year: 'Official site', link: 'https://abma.uk.com/qualifications/professional-qualifications/' },
+                { title: 'Community Development', year: 'Official site', link: 'https://abma.uk.com/qualifications/regulated-qualifications-uk-only/' },
+                { title: 'Hospitality', year: 'Official site', link: 'https://abma.uk.com/qualifications/professional-qualifications/' },
+                { title: 'Sample Exam Papers (Learner Hub)', year: 'Official site', link: 'https://abma.uk.com/abma-for-learners/' }
+            ]
+        }
+    };
+
+    let currentBoard = 'zimsec';
+    let currentZimsecLevel = 'form1-4';
+    let currentNccLevel = 'lv3';
+
+    function renderPapers(boardKey) {
+        const data = papersDB[boardKey];
+        if (!data) return;
+        const container = document.getElementById('paperListContainer');
+        let papers = [];
+
+        // Show/hide level selectors
+        const zimsecLevelSelector = document.getElementById('zimsecLevelSelector');
+        const nccLevelSelector = document.getElementById('nccLevelSelector');
+
+        if (boardKey === 'zimsec') {
+            zimsecLevelSelector.style.display = 'flex';
+            nccLevelSelector.style.display = 'none';
+            papers = zimsecPapers[currentZimsecLevel] || [];
+        } else if (boardKey === 'ncc') {
+            zimsecLevelSelector.style.display = 'none';
+            nccLevelSelector.style.display = 'flex';
+            papers = nccModules[currentNccLevel] || [];
+        } else {
+            zimsecLevelSelector.style.display = 'none';
+            nccLevelSelector.style.display = 'none';
+            papers = data.papers || [];
+        }
+
+        container.innerHTML = papers.map(p => `
+            <div class="paper-row">
+                <div class="paper-info">
+                    <div class="paper-title">${p.title}</div>
+                    <div class="paper-year">${p.year}</div>
+                </div>
+                <a href="${p.link}" target="_blank" rel="noopener" class="download-btn">Download</a>
+            </div>
+        `).join('');
+
+        // Study guides (only exist for NCC right now, expandable to other boards later)
+        const guidesContainer = document.getElementById('studyGuidesContainer');
+        const guidesForBoard = studyGuides[boardKey] && studyGuides[boardKey][boardKey === 'ncc' ? currentNccLevel : ''];
+        if (guidesForBoard && guidesForBoard.length) {
+            guidesContainer.style.display = 'block';
+            guidesContainer.innerHTML = `<div class="study-guides-label">📖 Study Guides — written from real coursework</div>` +
+                guidesForBoard.map(g => `
+                    <a href="${g.link}" class="guide-card">
+                        <div>
+                            <div class="guide-card-title">${g.title}</div>
+                            <div class="guide-card-sub">${g.sub}</div>
+                        </div>
+                        <span class="guide-card-arrow">→</span>
+                    </a>
+                `).join('');
+        } else {
+            guidesContainer.style.display = 'none';
+            guidesContainer.innerHTML = '';
+        }
+
+        // Update active board buttons
+        document.querySelectorAll('#boardSelectorPapers .board-btn').forEach(b => b.classList.remove('active'));
+        document.querySelector(`#boardSelectorPapers .board-btn[data-board="${boardKey}"]`)?.classList.add('active');
+
+        // Update active ZIMSEC level buttons
+        if (boardKey === 'zimsec') {
+            document.querySelectorAll('#zimsecLevelSelector .level-btn').forEach(b => b.classList.remove('active'));
+            document.querySelector(`#zimsecLevelSelector .level-btn[data-level="${currentZimsecLevel}"]`)?.classList.add('active');
+        }
+
+        // Update active NCC level buttons
+        if (boardKey === 'ncc') {
+            document.querySelectorAll('#nccLevelSelector .level-btn').forEach(b => b.classList.remove('active'));
+            document.querySelector(`#nccLevelSelector .level-btn[data-level="${currentNccLevel}"]`)?.classList.add('active');
+        }
     }
-    closeModalBtn.addEventListener('click', closeModal);
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) closeModal();
+
+    // Board selector logic (both home and papers)
+    document.querySelectorAll('.board-selector').forEach(selector => {
+        selector.querySelectorAll('.board-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const board = this.getAttribute('data-board');
+                const parent = this.closest('.board-selector');
+                parent.querySelectorAll('.board-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                if (parent.id === 'boardSelectorPapers') {
+                    currentBoard = board;
+                    renderPapers(board);
+                } else if (parent.id === 'boardSelectorHome') {
+                    const papersNav = Array.from(document.querySelectorAll('.nav-btn')).find(b => b.getAttribute('data-page') === 'papers');
+                    if (papersNav) {
+                        document.querySelectorAll('#boardSelectorPapers .board-btn').forEach(b => b.classList.remove('active'));
+                        document.querySelector(`#boardSelectorPapers .board-btn[data-board="${board}"]`)?.classList.add('active');
+                        currentBoard = board;
+                        renderPapers(board);
+                        switchPage('papers', papersNav);
+                    }
+                }
+            });
+        });
     });
 
-    // --- Rest of the website logic (navigation, quiz, tips, etc) ---
+    // ZIMSEC level selector
+    document.querySelectorAll('#zimsecLevelSelector .level-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const level = this.getAttribute('data-level');
+            currentZimsecLevel = level;
+            renderPapers('zimsec');
+        });
+    });
+
+    // NCC level selector
+    document.querySelectorAll('#nccLevelSelector .level-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const level = this.getAttribute('data-level');
+            currentNccLevel = level;
+            renderPapers('ncc');
+        });
+    });
+
+    // Navigation
     const pages = ['home', 'papers', 'test', 'about', 'contact'];
     function switchPage(pageId, activeBtnElement = null) {
-        pages.forEach(p => {
-            const pageEl = document.getElementById(`page-${p}`);
-            if (pageEl) pageEl.classList.remove('active-page');
-        });
-        const targetPage = document.getElementById(`page-${pageId}`);
-        if (targetPage) targetPage.classList.add('active-page');
-        document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+        pages.forEach(p => { document.getElementById(`page-${p}`)?.classList.remove('active-page'); });
+        document.getElementById(`page-${pageId}`)?.classList.add('active-page');
+        document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
         if (activeBtnElement) activeBtnElement.classList.add('active');
-        else {
-            const matching = Array.from(document.querySelectorAll('.nav-btn')).find(btn => btn.getAttribute('data-page') === pageId);
-            if (matching) matching.classList.add('active');
-        }
+        else { const matching = Array.from(document.querySelectorAll('.nav-btn')).find(b => b.getAttribute('data-page') === pageId); if (matching) matching.classList.add('active'); }
     }
     document.querySelectorAll('.nav-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             const page = btn.getAttribute('data-page');
             if (page) switchPage(page, btn);
+            if (page === 'papers') renderPapers(currentBoard);
         });
     });
-    document.querySelectorAll('.subject-card[data-goto="papers"]').forEach(card => {
+
+    // Home subject cards go to papers
+    document.querySelectorAll('.subject-card[data-subject]').forEach(card => {
         card.addEventListener('click', () => {
             const papersNav = Array.from(document.querySelectorAll('.nav-btn')).find(b => b.getAttribute('data-page') === 'papers');
             if (papersNav) switchPage('papers', papersNav);
+            renderPapers(currentBoard);
         });
     });
-    document.querySelectorAll('.download-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            const link = btn.getAttribute('data-link');
-            if (link) window.open(link, '_blank', 'noopener');
-            else alert('Past paper resource will be updated soon.');
-        });
-    });
-    // Quiz logic (unchanged)
+
+    // Quiz logic
     const quizDB = { maths: [{q:"If x² = 49, positive value of x?", opts:["5","6","7","8"], ans:2, exp:"√49 = 7"},{q:"15% of 200?", opts:["25","30","35","20"], ans:1, exp:"30"},{q:"Simplify 3x+5x-2x", opts:["6x","7x","5x","8x"], ans:0, exp:"6x"},{q:"Triangle angles 60°,70°, third angle?", opts:["40°","50°","60°","70°"], ans:1, exp:"50°"},{q:"LCM of 4 and 6?", opts:["8","10","12","24"], ans:2, exp:"12"}], english: [{q:"She __ to school every day.", opts:["go","goes","going","gone"], ans:1, exp:"goes"},{q:"Synonym for 'happy'?", opts:["Sad","Angry","Joyful","Tired"], ans:2, exp:"Joyful"},{q:"Correct comma sentence?", opts:["I like cats, dogs and fish.","I like, cats dogs and fish.","I, like cats dogs and fish.","I like cats dogs, and fish."], ans:0, exp:"Comma after cats"},{q:"'The wind whispered' is?", opts:["Simile","Metaphor","Personification","Alliteration"], ans:2, exp:"Personification"}], science: [{q:"Chemical symbol for water?", opts:["O2","H2O","CO2","NaCl"], ans:1, exp:"H₂O"},{q:"Which organ pumps blood?", opts:["Lung","Liver","Kidney","Heart"], ans:3, exp:"Heart"},{q:"Force keeping planets in orbit?", opts:["Friction","Magnetism","Gravity","Tension"], ans:2, exp:"Gravity"},{q:"Unit of electrical current?", opts:["Volt","Ohm","Watt","Ampere"], ans:3, exp:"Ampere"}] };
     let activeSubject = 'maths', qIndex = 0, quizScoreVal = 0, quizAnsweredFlag = false;
     function renderQuiz() {
@@ -913,18 +633,20 @@
         container.innerHTML = `<div style="font-size:13px; color:#5a665a;">Question ${qIndex+1} of ${qs.length}</div><div class="question-text">${qData.q}</div><div class="options-grid" id="optGrid"></div><div class="explanation" id="quizExp">${qData.exp}</div><button class="next-btn" id="quizNext">${qIndex+1 < qs.length ? 'Next Question' : 'Show Score'}</button>`;
         const optGrid = document.getElementById('optGrid');
         qData.opts.forEach((opt, idx) => { const btn = document.createElement('button'); btn.className = 'opt-btn'; btn.innerText = opt; btn.setAttribute('data-opt', idx); btn.addEventListener('click', () => checkAnswer(idx, qData.ans)); optGrid.appendChild(btn); });
-        document.getElementById('quizExp').classList.remove('show');
+        document.getElementById('quizExp').style.display = 'none';
         document.getElementById('quizNext').style.display = 'none';
         quizAnsweredFlag = false;
         document.getElementById('quizNext').onclick = () => { qIndex++; renderQuiz(); };
     }
-    function checkAnswer(selected, correct) { if (quizAnsweredFlag) return; quizAnsweredFlag = true; const btns = document.querySelectorAll('.opt-btn'); btns.forEach((btn, i) => { btn.disabled = true; if (i === correct) btn.classList.add('correct'); if (i === selected && i !== correct) btn.classList.add('wrong'); }); if (selected === correct) quizScoreVal++; document.getElementById('quizExp').classList.add('show'); document.getElementById('quizNext').style.display = 'block'; }
+    function checkAnswer(selected, correct) { if (quizAnsweredFlag) return; quizAnsweredFlag = true; const btns = document.querySelectorAll('.opt-btn'); btns.forEach((btn, i) => { btn.disabled = true; if (i === correct) btn.classList.add('correct'); if (i === selected && i !== correct) btn.classList.add('wrong'); }); if (selected === correct) quizScoreVal++; document.getElementById('quizExp').style.display = 'block'; document.getElementById('quizNext').style.display = 'block'; }
     function showQuizFinal() { const total = quizDB[activeSubject].length; document.getElementById('quizFill').style.width = '100%'; document.getElementById('quizRenderArea').innerHTML = `<div class="score-area"><div class="score-num">${quizScoreVal}/${total}</div><div style="margin:8px 0;">${quizScoreVal/total >= 0.7 ? 'Great! 🎉' : (quizScoreVal/total>=0.5 ? 'Good effort!' : 'Keep practicing!')}</div><button class="retry-btn" id="retryQuizBtn">Try Again</button></div>`; document.getElementById('retryQuizBtn')?.addEventListener('click', () => { qIndex = 0; quizScoreVal = 0; renderQuiz(); }); }
     function changeSubject(subj) { activeSubject = subj; qIndex = 0; quizScoreVal = 0; renderQuiz(); }
     document.querySelectorAll('.quiz-subj').forEach(btn => { btn.addEventListener('click', (e) => { document.querySelectorAll('.quiz-subj').forEach(b => b.classList.remove('active')); btn.classList.add('active'); changeSubject(btn.getAttribute('data-subj')); }); });
     const tipsList = ["📘 Pomodoro: 25 min study, 5 min rest.", "🧠 Timed past papers build exam stamina.", "📝 For Science: draw diagrams from memory.", "📖 English: plan 5 mins before writing.", "🔥 Maths: daily algebra & geometry practice."];
     document.getElementById('dailyTip').innerText = tipsList[Math.floor(Math.random() * tipsList.length)];
     document.getElementById('sendMsgBtn')?.addEventListener('click', () => { const name = document.getElementById('contactName')?.value.trim(); const email = document.getElementById('contactEmail')?.value.trim(); const msg = document.getElementById('contactMsg')?.value.trim(); if (!name || !email || !msg) { alert("Please fill your name, contact, and message."); return; } document.getElementById('contactSuccess').style.display = 'block'; document.getElementById('sendMsgBtn').disabled = true; setTimeout(() => { document.getElementById('sendMsgBtn').disabled = false; }, 2000); });
+    // Init
+    renderPapers('zimsec');
     renderQuiz();
 </script>
 </body>
