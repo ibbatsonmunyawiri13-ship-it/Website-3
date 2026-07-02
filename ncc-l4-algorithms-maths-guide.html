@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>NCC Level 4 Algorithms & Maths Concepts Study Guide | Zim Study Hub</title>
+<meta name="description" content="A complete, original study guide for the NCC Education Level 4 Diploma in Computing – Algorithms and Mathematical Concepts for Computing module: pseudocode, flowcharts, Big O, logic, and exam technique." />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  :root {
+    --primary:#005a00; --primary-dark:#004700; --primary-light:#eef5e8;
+    --accent:#7ed957; --text-dark:#1a1f1a; --text-muted:#4a554a;
+    --bg-body:#fafaf7; --border-light:#e6e6df;
+  }
+  body { font-family:'DM Sans', sans-serif; background:var(--bg-body); color:var(--text-dark); line-height:1.65; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 1.2rem 3rem; }
+  header.hero { background: var(--primary); color:white; padding: 2rem 1.2rem 1.6rem; border-radius: 0 0 24px 24px; margin-bottom: 1.8rem; }
+  header.hero .crumbs { font-size:0.75rem; color:rgba(255,255,255,0.75); margin-bottom:10px; }
+  header.hero .crumbs a { color:rgba(255,255,255,0.85); text-decoration:none; }
+  header.hero h1 { font-family:'Fraunces', serif; font-size: clamp(1.5rem, 5vw, 2.1rem); font-weight:600; line-height:1.25; max-width:640px; margin:0 auto; }
+  header.hero p.sub { color:rgba(255,255,255,0.85); font-size:0.9rem; margin-top:10px; max-width:640px; margin-left:auto; margin-right:auto; }
+  .meta-row { display:flex; flex-wrap:wrap; gap:10px; margin-top: 14px; max-width:640px; margin-left:auto; margin-right:auto; }
+  .meta-tag { background:rgba(255,255,255,0.15); border:0.5px solid rgba(255,255,255,0.3); border-radius:40px; padding:5px 14px; font-size:0.72rem; }
+  h2 { font-family:'Fraunces', serif; font-weight:600; font-size:1.35rem; color:var(--primary-dark); margin: 2rem 0 0.8rem; }
+  h3 { font-family:'Fraunces', serif; font-weight:600; font-size:1.05rem; color:var(--text-dark); margin: 1.4rem 0 0.5rem; }
+  p { margin-bottom: 1rem; font-size: 0.95rem; }
+  ul, ol { margin: 0 0 1rem 1.3rem; font-size:0.95rem; }
+  li { margin-bottom: 0.4rem; }
+  .callout { background: var(--primary-light); border-left: 4px solid var(--accent); border-radius: 14px; padding: 14px 18px; margin: 1.2rem 0; font-size:0.9rem; }
+  .callout strong { color: var(--primary-dark); }
+  table { width:100%; border-collapse: collapse; margin: 1rem 0; font-size:0.85rem; }
+  th, td { text-align:left; padding: 8px 10px; border-bottom: 1px solid var(--border-light); }
+  th { background: var(--primary-light); color: var(--primary-dark); font-weight:600; }
+  .toc { background:white; border:0.5px solid var(--border-light); border-radius:16px; padding: 1rem 1.3rem; margin-bottom: 1.5rem; }
+  .toc h3 { margin-top:0; font-size:0.95rem; }
+  .toc ol { margin-left: 1.1rem; }
+  .toc a { color: var(--primary); text-decoration:none; font-size:0.85rem; }
+  .toc a:hover { text-decoration:underline; }
+  .author-card { display:flex; gap:14px; align-items:flex-start; background:white; border:0.5px solid var(--border-light); border-radius:18px; padding:1.2rem; margin-top:2rem; }
+  .author-avatar { width:48px; height:48px; border-radius:50%; background:var(--primary); color:white; display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-weight:600; font-size:1.1rem; flex-shrink:0; }
+  .author-card p { font-size:0.85rem; margin-bottom:0; }
+  .back-link { display:inline-block; margin-top: 1.5rem; color:var(--primary); font-weight:600; text-decoration:none; font-size:0.9rem; }
+  code { background:#f0f0e8; padding:1px 6px; border-radius:6px; font-size:0.85em; }
+  pre { background:#1a1f1a; color:#eef5e8; padding:14px 16px; border-radius:14px; overflow-x:auto; font-size:0.8rem; margin-bottom:1rem; }
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap" style="padding:0;">
+    <div class="crumbs"><a href="index.html">Home</a> › <a href="index.html#papers">Past Papers</a> › NCC Level 4 › Algorithms & Maths Concepts</div>
+    <h1>NCC Level 4 Algorithms & Mathematical Concepts: The Complete Study Guide</h1>
+    <p class="sub">Pseudocode, flowcharts, logic, and the maths foundations examiners keep coming back to — with worked examples, not just definitions.</p>
+    <div class="meta-row">
+      <span class="meta-tag">📘 NCC Education L4DC</span>
+      <span class="meta-tag">⏱ ~12 min read</span>
+      <span class="meta-tag">🇿🇼 Written in Harare</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="toc">
+    <h3>On this page</h3>
+    <ol>
+      <li><a href="#pseudocode">Pseudocode and flowchart conventions examiners expect</a></li>
+      <li><a href="#control">Sequence, selection and iteration</a></li>
+      <li><a href="#logic">Boolean logic and truth tables</a></li>
+      <li><a href="#numbersystems">Number systems — binary, denary and hexadecimal</a></li>
+      <li><a href="#complexity">Algorithm efficiency in plain language</a></li>
+      <li><a href="#mistakes">Common mistakes that cost marks</a></li>
+      <li><a href="#plan">A realistic 2-week revision plan</a></li>
+    </ol>
+  </div>
+
+  <p>This module blends programming logic with foundational maths, and the past papers (Spring, Summer, Autumn and Winter 2025, plus Spring 2026) consistently reward students who can trace through an algorithm step-by-step rather than just describe what it "generally does." This guide focuses on the areas that repeat most.</p>
+
+  <h2 id="pseudocode">1. Pseudocode and flowchart conventions examiners expect</h2>
+  <p>Marks are frequently lost not because the logic is wrong, but because the pseudocode or flowchart doesn't follow the conventions the mark scheme expects. Stick to these habits:</p>
+  <ul>
+    <li>Use clear, consistent keywords: <code>IF...THEN...ELSE...ENDIF</code>, <code>WHILE...ENDWHILE</code>, <code>FOR...NEXT</code></li>
+    <li>In flowcharts: ovals for start/end, rectangles for process steps, diamonds for decisions, parallelograms for input/output</li>
+    <li>Always show variable initialisation before it's used (e.g. <code>total = 0</code> before a loop that adds to <code>total</code>)</li>
+  </ul>
+
+  <h2 id="control">2. Sequence, selection and iteration</h2>
+  <p>These are the three building blocks of every algorithm, and questions often ask you to identify or write examples of each:</p>
+  <ul>
+    <li><strong>Sequence:</strong> instructions executed one after another, in order</li>
+    <li><strong>Selection:</strong> a decision point where the program branches based on a condition (IF/ELSE)</li>
+    <li><strong>Iteration:</strong> a loop that repeats a set of instructions, either a fixed number of times (FOR) or until a condition is met (WHILE)</li>
+  </ul>
+  <p>A common exam task is to trace a piece of pseudocode using a trace table, tracking how each variable changes on every iteration:</p>
+  <pre>count = 0
+total = 0
+WHILE count &lt; 5
+    total = total + count
+    count = count + 1
+ENDWHILE
+PRINT total</pre>
+  <table>
+    <tr><th>Iteration</th><th>count (before)</th><th>total</th><th>count (after)</th></tr>
+    <tr><td>1</td><td>0</td><td>0</td><td>1</td></tr>
+    <tr><td>2</td><td>1</td><td>1</td><td>2</td></tr>
+    <tr><td>3</td><td>2</td><td>3</td><td>3</td></tr>
+    <tr><td>4</td><td>3</td><td>6</td><td>4</td></tr>
+    <tr><td>5</td><td>4</td><td>10</td><td>5</td></tr>
+  </table>
+  <p>The loop exits once <code>count</code> reaches 5, so the final printed value is <strong>10</strong>. Practising trace tables like this is one of the highest-value revision activities for this module.</p>
+
+  <h2 id="logic">3. Boolean logic and truth tables</h2>
+  <p>You should be able to build a truth table for AND, OR, and NOT without hesitation:</p>
+  <table>
+    <tr><th>A</th><th>B</th><th>A AND B</th><th>A OR B</th><th>NOT A</th></tr>
+    <tr><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
+    <tr><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td></tr>
+    <tr><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td></tr>
+    <tr><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td></tr>
+  </table>
+  <div class="callout"><strong>Exam tip:</strong> When asked to write a compound condition (e.g. "a discount applies if the customer is a member AND has spent over $50"), write it exactly the way it would appear in code: <code>IF isMember = TRUE AND totalSpent &gt; 50 THEN</code> — examiners check both the logic and correct use of AND/OR.</div>
+
+  <h2 id="numbersystems">4. Number systems — binary, denary and hexadecimal</h2>
+  <p>Conversion questions are near-guaranteed. The methods to know cold:</p>
+  <ul>
+    <li><strong>Binary to denary:</strong> multiply each bit by its place value (128, 64, 32, 16, 8, 4, 2, 1 for an 8-bit number) and sum the results where the bit is 1. E.g. <code>10110100</code> = 128+32+16+4 = <strong>180</strong>.</li>
+    <li><strong>Denary to binary:</strong> repeatedly divide by 2, recording the remainders, then read them bottom to top.</li>
+    <li><strong>Binary to hexadecimal:</strong> split the binary number into groups of 4 bits (nibbles) starting from the right, then convert each nibble to its hex digit (0-9, A-F).</li>
+  </ul>
+  <p>Practising 4-5 conversions of each type by hand until they're automatic is worth more than reading the theory again.</p>
+
+  <h2 id="complexity">5. Algorithm efficiency in plain language</h2>
+  <p>At Level 4 you're not expected to formally prove Big O notation, but you are expected to explain, in plain terms, why one approach to a problem is more efficient than another — for example, why a binary search is faster than a linear search on a sorted list, because it eliminates half the remaining data with each comparison instead of checking every item one by one.</p>
+
+  <h2 id="mistakes">6. Common mistakes that cost marks</h2>
+  <ul>
+    <li><strong>Inconsistent pseudocode keywords</strong> — mixing IF/ENDIF with different bracket styles confuses markers and can lose clarity marks.</li>
+    <li><strong>Skipping steps in trace tables</strong> — show every iteration, even if the pattern seems obvious.</li>
+    <li><strong>Sign errors in binary-denary conversion</strong> — double-check place values, especially with 8-bit vs 16-bit questions.</li>
+    <li><strong>Vague justification for algorithm choice</strong> — "it's faster" isn't enough; explain <em>why</em> in terms of how many comparisons or steps are needed.</li>
+  </ul>
+
+  <h2 id="plan">7. A realistic 2-week revision plan</h2>
+  <table>
+    <tr><th>Days</th><th>Focus</th></tr>
+    <tr><td>1–3</td><td>Pseudocode/flowchart conventions, sequence, selection, iteration</td></tr>
+    <tr><td>4–6</td><td>Trace tables — practise on 5+ different pseudocode examples</td></tr>
+    <tr><td>7–9</td><td>Boolean logic, truth tables, compound conditions</td></tr>
+    <tr><td>10–12</td><td>Number system conversions until automatic</td></tr>
+    <tr><td>13–14</td><td>Timed past paper under exam conditions, marked against the official scheme</td></tr>
+  </table>
+
+  <p>You'll find the actual past papers and mark schemes referenced in this guide on the <a href="index.html">Zim Study Hub past papers page</a> under NCC → Level 4 → Algorithms & Maths Concepts for Computing.</p>
+
+  <div class="author-card">
+    <div class="author-avatar">S</div>
+    <p><strong>Written by Simba</strong>, a Speciss College student currently completing the NCC Education Level 3 and Level 4 Diplomas in Computing in Harare, Zimbabwe. This guide was written from real coursework notes and past-paper practice while preparing for this exact module.</p>
+  </div>
+
+  <a class="back-link" href="index.html">← Back to Zim Study Hub</a>
+</div>
+</body>
+</html>

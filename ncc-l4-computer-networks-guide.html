@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>NCC Level 4 Computer Networks Study Guide | Zim Study Hub</title>
+<meta name="description" content="A complete, original study guide for the NCC Education Level 4 Diploma in Computing – Computer Networks module: exam structure, OSI model, TCP/IP, subnetting, VoIP, and exam technique, written by a current Speciss College student." />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  :root {
+    --primary:#005a00; --primary-dark:#004700; --primary-light:#eef5e8;
+    --accent:#7ed957; --text-dark:#1a1f1a; --text-muted:#4a554a;
+    --bg-body:#fafaf7; --border-light:#e6e6df;
+  }
+  body { font-family:'DM Sans', sans-serif; background:var(--bg-body); color:var(--text-dark); line-height:1.65; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 1.2rem 3rem; }
+  header.hero { background: var(--primary); color:white; padding: 2rem 1.2rem 1.6rem; border-radius: 0 0 24px 24px; margin-bottom: 1.8rem; }
+  header.hero .crumbs { font-size:0.75rem; color:rgba(255,255,255,0.75); margin-bottom:10px; }
+  header.hero .crumbs a { color:rgba(255,255,255,0.85); text-decoration:none; }
+  header.hero h1 { font-family:'Fraunces', serif; font-size: clamp(1.5rem, 5vw, 2.1rem); font-weight:600; line-height:1.25; max-width:640px; margin:0 auto; }
+  header.hero p.sub { color:rgba(255,255,255,0.85); font-size:0.9rem; margin-top:10px; max-width:640px; margin-left:auto; margin-right:auto; }
+  .meta-row { display:flex; flex-wrap:wrap; gap:10px; margin-top: 14px; max-width:640px; margin-left:auto; margin-right:auto; }
+  .meta-tag { background:rgba(255,255,255,0.15); border:0.5px solid rgba(255,255,255,0.3); border-radius:40px; padding:5px 14px; font-size:0.72rem; }
+  h2 { font-family:'Fraunces', serif; font-weight:600; font-size:1.35rem; color:var(--primary-dark); margin: 2rem 0 0.8rem; }
+  h3 { font-family:'Fraunces', serif; font-weight:600; font-size:1.05rem; color:var(--text-dark); margin: 1.4rem 0 0.5rem; }
+  p { margin-bottom: 1rem; font-size: 0.95rem; }
+  ul, ol { margin: 0 0 1rem 1.3rem; font-size:0.95rem; }
+  li { margin-bottom: 0.4rem; }
+  .callout { background: var(--primary-light); border-left: 4px solid var(--accent); border-radius: 14px; padding: 14px 18px; margin: 1.2rem 0; font-size:0.9rem; }
+  .callout strong { color: var(--primary-dark); }
+  table { width:100%; border-collapse: collapse; margin: 1rem 0; font-size:0.85rem; }
+  th, td { text-align:left; padding: 8px 10px; border-bottom: 1px solid var(--border-light); }
+  th { background: var(--primary-light); color: var(--primary-dark); font-weight:600; }
+  .toc { background:white; border:0.5px solid var(--border-light); border-radius:16px; padding: 1rem 1.3rem; margin-bottom: 1.5rem; }
+  .toc h3 { margin-top:0; font-size:0.95rem; }
+  .toc ol { margin-left: 1.1rem; }
+  .toc a { color: var(--primary); text-decoration:none; font-size:0.85rem; }
+  .toc a:hover { text-decoration:underline; }
+  .author-card { display:flex; gap:14px; align-items:flex-start; background:white; border:0.5px solid var(--border-light); border-radius:18px; padding:1.2rem; margin-top:2rem; }
+  .author-avatar { width:48px; height:48px; border-radius:50%; background:var(--primary); color:white; display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-weight:600; font-size:1.1rem; flex-shrink:0; }
+  .author-card p { font-size:0.85rem; margin-bottom:0; }
+  .back-link { display:inline-block; margin-top: 1.5rem; color:var(--primary); font-weight:600; text-decoration:none; font-size:0.9rem; }
+  code { background:#f0f0e8; padding:1px 6px; border-radius:6px; font-size:0.85em; }
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap" style="padding:0;">
+    <div class="crumbs"><a href="index.html">Home</a> › <a href="index.html#papers">Past Papers</a> › NCC Level 4 › Computer Networks</div>
+    <h1>NCC Level 4 Computer Networks: The Complete Study Guide</h1>
+    <p class="sub">Everything covered in the module, explained the way it's actually examined — written from real Speciss College coursework and past-paper patterns, not copied from a textbook.</p>
+    <div class="meta-row">
+      <span class="meta-tag">📘 NCC Education L4DC</span>
+      <span class="meta-tag">⏱ ~12 min read</span>
+      <span class="meta-tag">🇿🇼 Written in Harare</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="toc">
+    <h3>On this page</h3>
+    <ol>
+      <li><a href="#exam-format">How the exam is structured</a></li>
+      <li><a href="#osi">The OSI model — what actually gets asked</a></li>
+      <li><a href="#tcpip">TCP/IP suite and how it differs from OSI</a></li>
+      <li><a href="#addressing">IP addressing and subnetting basics</a></li>
+      <li><a href="#voip">VoIP — the topic most students underprepare for</a></li>
+      <li><a href="#mistakes">Common mistakes that cost marks</a></li>
+      <li><a href="#plan">A realistic 2-week revision plan</a></li>
+    </ol>
+  </div>
+
+  <p>If you're studying <strong>Computer Networks</strong> as part of the NCC Education Level 4 Diploma in Computing, you've probably noticed the past papers repeat the same handful of themes every sitting — the OSI model, TCP/IP, addressing, and increasingly, VoIP. This guide breaks each of those down the way they're actually tested, based on working through the Spring 2025, Summer 2025 and earlier mark schemes, not just the theory as written in a textbook.</p>
+
+  <h2 id="exam-format">1. How the exam is structured</h2>
+  <p>The Computer Networks paper is typically split between short-answer/definition questions worth 2–4 marks each, and longer scenario-based questions worth 6–10 marks that ask you to design or troubleshoot a small network. The scenario questions are where most marks are lost — not because students don't know the theory, but because they describe concepts generically instead of applying them to the scenario given.</p>
+  <div class="callout"><strong>Exam technique tip:</strong> Whenever a question gives you a scenario (e.g. "a small office with 15 computers needs to connect to the internet"), always refer back to the specific numbers and constraints in your answer. Markers are looking for applied knowledge, not a recited definition.</div>
+
+  <h2 id="osi">2. The OSI model — what actually gets asked</h2>
+  <p>Almost every sitting includes at least one question asking you to name the seven OSI layers and explain the function of two or three of them. The mistake most students make is memorising the layer names without being able to explain <em>what happens</em> at each one in plain language.</p>
+  <table>
+    <tr><th>Layer</th><th>Name</th><th>What it actually does</th></tr>
+    <tr><td>7</td><td>Application</td><td>Where the user-facing software (browser, email client) interacts with the network</td></tr>
+    <tr><td>6</td><td>Presentation</td><td>Formats/encrypts data so both ends understand it (e.g. SSL, data compression)</td></tr>
+    <tr><td>5</td><td>Session</td><td>Opens, manages and closes the conversation between two devices</td></tr>
+    <tr><td>4</td><td>Transport</td><td>Breaks data into segments and ensures reliable delivery (TCP) or fast delivery (UDP)</td></tr>
+    <tr><td>3</td><td>Network</td><td>Handles logical addressing and routing (this is where IP addresses live)</td></tr>
+    <tr><td>2</td><td>Data Link</td><td>Handles physical addressing (MAC addresses) and error detection on the local link</td></tr>
+    <tr><td>1</td><td>Physical</td><td>The actual cables, signals, and hardware transmitting raw bits</td></tr>
+  </table>
+  <p>A reliable way to remember the order top-down is the mnemonic <em>"All People Seem To Need Data Processing"</em> (Application, Presentation, Session, Transport, Network, Data Link, Physical).</p>
+
+  <h2 id="tcpip">3. TCP/IP suite and how it differs from OSI</h2>
+  <p>Past papers frequently ask students to compare the seven-layer OSI model with the four-layer TCP/IP model. The core point examiners want you to make is that TCP/IP is the model actually implemented on real networks (including the internet), while OSI is a theoretical reference model used mainly for teaching and troubleshooting.</p>
+  <ul>
+    <li><strong>Application layer (TCP/IP)</strong> merges OSI's Application, Presentation and Session layers.</li>
+    <li><strong>Transport layer</strong> maps directly to OSI Layer 4 — this is where TCP (reliable, connection-based) and UDP (fast, connectionless) sit.</li>
+    <li><strong>Internet layer</strong> maps to OSI Layer 3 — this is where IP addressing and routing happen.</li>
+    <li><strong>Network Access layer</strong> merges OSI's Data Link and Physical layers.</li>
+  </ul>
+  <p>If a question asks you to explain why TCP is used for a file download but UDP is used for a video call, the expected answer is: TCP guarantees every packet arrives and in the correct order (which matters for a file), while UDP prioritises speed over reliability and simply drops packets that don't arrive in time (which is acceptable for real-time voice or video, where a late packet is worse than a missing one).</p>
+
+  <h2 id="addressing">4. IP addressing and subnetting basics</h2>
+  <p>You don't need to be a subnetting wizard for this module, but you do need to be comfortable with the fundamentals examiners test repeatedly:</p>
+  <ul>
+    <li>The difference between a public IP address (routable on the internet) and a private IP address (used inside a LAN, e.g. ranges starting 192.168.x.x, 10.x.x.x, or 172.16–31.x.x)</li>
+    <li>What a subnet mask does — it splits an IP address into the network portion and the host portion</li>
+    <li>Why organisations subnet a network at all — mainly to reduce broadcast traffic, improve security by segmenting departments, and make more efficient use of a limited address pool</li>
+  </ul>
+  <div class="callout"><strong>Common exam phrasing:</strong> "Explain one advantage of subnetting a network." A safe, mark-scheme-friendly answer: subnetting reduces network congestion by containing broadcast traffic within smaller segments, and improves security by isolating departments from each other.</div>
+
+  <h2 id="voip">5. VoIP — the topic most students underprepare for</h2>
+  <p>Voice over IP has appeared more consistently in recent sittings (Spring and Summer 2025 papers both referenced it), yet it's often the least-revised topic because it feels newer than the "classic" networking theory. The examiner-friendly way to think about VoIP is in three parts:</p>
+  <ol>
+    <li><strong>How it works:</strong> Analogue voice is converted into digital packets, compressed using a codec, and sent over an IP network instead of the traditional circuit-switched telephone network.</li>
+    <li><strong>Why organisations adopt it:</strong> Lower long-distance call costs, one converged network for voice and data instead of two separate infrastructures, and easier integration with other digital services (voicemail-to-email, video conferencing).</li>
+    <li><strong>Its weaknesses:</strong> Call quality depends heavily on available bandwidth and network congestion (this is why Quality of Service, or QoS, is usually mentioned alongside VoIP), and it's more vulnerable to power/internet outages than a traditional phone line.</li>
+  </ol>
+  <p>If a question asks you to advise a business on adopting VoIP, a strong answer touches on cost savings, the need for sufficient bandwidth, and a mention of QoS to prioritise voice traffic over less time-sensitive data.</p>
+
+  <h2 id="mistakes">6. Common mistakes that cost marks</h2>
+  <ul>
+    <li><strong>Confusing MAC and IP addresses</strong> — remember MAC addresses are physical/hardware (Layer 2) and don't change, while IP addresses are logical (Layer 3) and can change depending on the network you connect to.</li>
+    <li><strong>Giving definitions without context</strong> — in scenario questions, always tie your answer back to the specific numbers or business described.</li>
+    <li><strong>Running out of time on long scenario questions</strong> — these are worth the most marks; don't spend disproportionate time on 2-mark definition questions first.</li>
+    <li><strong>Not naming specific protocols</strong> — where relevant, name the actual protocol (e.g. DHCP for automatic IP assignment, DNS for domain name resolution) rather than describing it vaguely.</li>
+  </ul>
+
+  <h2 id="plan">7. A realistic 2-week revision plan</h2>
+  <table>
+    <tr><th>Days</th><th>Focus</th></tr>
+    <tr><td>1–3</td><td>OSI model — be able to name and explain all 7 layers from memory, both directions</td></tr>
+    <tr><td>4–6</td><td>TCP/IP model and TCP vs UDP — practise explaining the difference in your own words</td></tr>
+    <tr><td>7–9</td><td>IP addressing, public vs private, subnetting basics</td></tr>
+    <tr><td>10–12</td><td>VoIP — work through the three-part structure above</td></tr>
+    <tr><td>13–14</td><td>Timed past paper under exam conditions, then mark yourself against the official mark scheme</td></tr>
+  </table>
+
+  <p>You'll find the actual past papers and mark schemes referenced in this guide on the <a href="index.html">Zim Study Hub past papers page</a> under NCC → Level 4 → Computer Networks.</p>
+
+  <div class="author-card">
+    <div class="author-avatar">S</div>
+    <p><strong>Written by Simba</strong>, a Speciss College student currently completing the NCC Education Level 3 and Level 4 Diplomas in Computing in Harare, Zimbabwe. This guide was written from real coursework notes and past-paper practice while preparing for this exact module — not copied from a generic source.</p>
+  </div>
+
+  <a class="back-link" href="index.html">← Back to Zim Study Hub</a>
+</div>
+</body>
+</html>
