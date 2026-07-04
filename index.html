@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes" />
-    <title>Zim Study Hub | Exam Papers & Prep</title>
-    <meta name="description" content="Free ZIMSEC, Cambridge, Edexcel, IB, NCC & ABMA past papers, online practice tests, notes & AI tips for Zimbabwean students." />
+    <title>Zim Study Hub | ZIMSEC, Cambridge, Edexcel, IB & NCC Exam Prep</title>
+    <meta name="description" content="Free past papers, study guides, online practice tests & AI tips for ZIMSEC, Cambridge, Edexcel, IB, NCC & ABMA students in Zimbabwe. Fully responsive for phone & computer." />
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -383,6 +383,23 @@
                 { title: 'Databases — Complete Study Guide', sub: 'Keys, ER diagrams, normalisation & SQL', link: 'ncc-l4-databases-guide.html' },
                 { title: 'Algorithms & Maths Concepts — Complete Study Guide', sub: 'Pseudocode, trace tables, logic & number systems', link: 'ncc-l4-algorithms-maths-guide.html' }
             ]
+        },
+        zimsec: {
+            olevel: [
+                { title: 'Mathematics — Complete Study Guide', sub: 'Section A/B strategy, key topics & accuracy rules', link: 'zimsec-olevel-mathematics-guide.html' },
+                { title: 'English Language — Complete Study Guide', sub: 'Composition, comprehension & the 20-mark summary', link: 'zimsec-olevel-english-guide.html' },
+                { title: 'Combined Science — Complete Study Guide', sub: 'High-yield Biology, Chemistry & Physics topics', link: 'zimsec-olevel-science-guide.html' }
+            ]
+        },
+        cambridge: {
+            '': [
+                { title: 'Mathematics (0580) — Complete Study Guide', sub: 'Core vs Extended, the 2025 paper change & method marks', link: 'cambridge-igcse-mathematics-guide.html' }
+            ]
+        },
+        edexcel: {
+            '': [
+                { title: 'Mathematics A (4MA1) — Complete Study Guide', sub: 'Foundation vs Higher tier & calculator policy', link: 'edexcel-igcse-mathematics-guide.html' }
+            ]
         }
     };
 
@@ -514,9 +531,12 @@
             </div>
         `).join('');
 
-        // Study guides (only exist for NCC right now, expandable to other boards later)
+        // Study guides (expandable across boards as more are written)
         const guidesContainer = document.getElementById('studyGuidesContainer');
-        const guidesForBoard = studyGuides[boardKey] && studyGuides[boardKey][boardKey === 'ncc' ? currentNccLevel : ''];
+        let guideLevelKey = '';
+        if (boardKey === 'ncc') guideLevelKey = currentNccLevel;
+        else if (boardKey === 'zimsec') guideLevelKey = currentZimsecLevel;
+        const guidesForBoard = studyGuides[boardKey] && studyGuides[boardKey][guideLevelKey];
         if (guidesForBoard && guidesForBoard.length) {
             guidesContainer.style.display = 'block';
             guidesContainer.innerHTML = `<div class="study-guides-label">📖 Study Guides — written from real coursework</div>` +
